@@ -3,10 +3,70 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:local="clr-namespace:Proyecto_Creacion_Interfaces"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="740" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MouseDown="Border_MouseDown"
+       ResizeMode="CanResizeWithGrip"  MinHeight="500"
+        MinWidth="500">
+
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320"  MinWidth="100"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Menu izquierda -->
+        <Border CornerRadius="10 0 0 10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" >
+                    <GradientStop Color="#223266" Offset="0"/>
+                    <GradientStop Color="#27396b" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+
+
+        </Border>
+
+        <!--Seccion Principal-->
+
+        <Border Grid.Column="1" CornerRadius="0 10 10 0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                    <GradientStop Color="#41518f" Offset="0"/>
+                    <GradientStop Color="#2c386c" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 10 10 0">
+
+                    <Button Background="Transparent" BorderThickness="0" Click="Button_Minimize" Margin="0 0 10 0" >
+                        <fa:IconImage  Height="3" Icon="WindowMinimize"   />
+                    </Button>
+
+                    <Button Background="Transparent" BorderThickness="0" Click="Button_Maximize" Margin="0 0 10 0" >
+                        <fa:IconImage Height="20"  Icon="WindowRestore"  />
+                    </Button>
+
+                    <Button Background="Transparent" BorderThickness="0" Click="closeButton_Click" Margin="0 0 10 0">
+                        <fa:IconImage  Height="17" Icon="Close"  />
+                    </Button>
+
+                </StackPanel>
+
+
+            </Grid>
+        </Border>
+
+
     </Grid>
 </Window>
