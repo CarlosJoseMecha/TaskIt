@@ -1,4 +1,4 @@
-# Proyecto_Cracion_Interfaces
+# TaskIt
 Proyecto para la asignatura de Desarrollo de Interfaces
 
 Autor: Carlos José Mecha
