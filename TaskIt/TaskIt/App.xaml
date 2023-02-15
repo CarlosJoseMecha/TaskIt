@@ -3,141 +3,144 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
+   <Application.Resources>
 
-        <!-- Estilos menu -->
+      <!-- Estilos botones cerrar, maximizar -->
+      
 
-        <Style x:Key="btnMenu" TargetType="Button">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="#707db2"/>
-            <Setter Property="Margin" Value="0 0 0 5"/>
-            <Setter Property="Height" Value="45"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="Tag" Value="#6673b7"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="Transparent">
-                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+      <!-- Estilos menu -->
 
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="#ffffff"/>
-                    <Setter Property="Tag" Value="#7071f0"/>
-                    <Setter Property="Background">
-                        <Setter.Value>
-                            <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
-                                <GradientStop Color="#31407b" Offset="0"/>
-                                <GradientStop Color="#495385" Offset="3"/>
+      <Style x:Key="btnMenu" TargetType="Button">
+         <Setter Property="Background" Value="Transparent"/>
+         <Setter Property="Foreground" Value="#707db2"/>
+         <Setter Property="Margin" Value="0 0 0 5"/>
+         <Setter Property="Height" Value="45"/>
+         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+         <Setter Property="Tag" Value="#6673b7"/>
+         <Setter Property="Template">
+            <Setter.Value>
+               <ControlTemplate TargetType="Button">
+                  <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="Transparent">
+                     <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                  </Border>
+               </ControlTemplate>
+            </Setter.Value>
+         </Setter>
 
-                            </LinearGradientBrush>
-                        </Setter.Value>
-                    </Setter>
-
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="#a5a1f5">
-                                    <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <Style x:Key="btnMenuIcono" TargetType="fa:IconImage">
-            <Setter Property="Width" Value="23"/>
-            <Setter Property="Height" Value="23"/>
-            <Setter Property="Margin" Value="35 0 20 0"/>
-            <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-        </Style>
-
-        <Style x:Key="txtMenu" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-        </Style>
-
-        <!-- Estilos active -->
-
-        <Style x:Key="btnMenuActive" TargetType="Button">
-            <Setter Property="Background">
-                <Setter.Value>
-                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+         <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+               <Setter Property="Foreground" Value="#ffffff"/>
+               <Setter Property="Tag" Value="#7071f0"/>
+               <Setter Property="Background">
+                  <Setter.Value>
+                     <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
                         <GradientStop Color="#31407b" Offset="0"/>
                         <GradientStop Color="#495385" Offset="3"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Foreground" Value="#bccaf1"/>
-            <Setter Property="Margin" Value="0 0 0 5"/>
-            <Setter Property="Height" Value="45"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="Tag" Value="#7071f0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
+
+                     </LinearGradientBrush>
+                  </Setter.Value>
+               </Setter>
+
+               <Setter Property="Template">
+                  <Setter.Value>
+                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="#a5a1f5">
-                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                           <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
                         </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+                     </ControlTemplate>
+                  </Setter.Value>
+               </Setter>
+            </Trigger>
+         </Style.Triggers>
+      </Style>
 
-        <Style x:Key="btnMenuIconoActive" TargetType="fa:IconImage">
-            <Setter Property="Width" Value="23"/>
-            <Setter Property="Height" Value="23"/>
-            <Setter Property="Margin" Value="35 0 20 0"/>
-            <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-        </Style>
+      <Style x:Key="btnMenuIcono" TargetType="fa:IconImage">
+         <Setter Property="Width" Value="23"/>
+         <Setter Property="Height" Value="23"/>
+         <Setter Property="Margin" Value="35 0 20 0"/>
+         <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+      </Style>
 
-        <Style x:Key="txtMenuActive" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-        </Style>
+      <Style x:Key="txtMenu" TargetType="TextBlock">
+         <Setter Property="FontSize" Value="13"/>
+         <Setter Property="VerticalAlignment" Value="Center"/>
+         <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+      </Style>
 
-        <!-- Estilos barra superior -->
-        <Style x:Key="btnMenuTop" TargetType="Button">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="#9eabe2"/>
-            <Setter Property="Margin" Value="5 0 0 0"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Width" Value="80"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+      <!-- Estilos active -->
 
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#5b60c4"/>
-                    <Setter Property="Foreground" Value="#ffffff"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+      <Style x:Key="btnMenuActive" TargetType="Button">
+         <Setter Property="Background">
+            <Setter.Value>
+               <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                  <GradientStop Color="#31407b" Offset="0"/>
+                  <GradientStop Color="#495385" Offset="3"/>
+               </LinearGradientBrush>
+            </Setter.Value>
+         </Setter>
+         <Setter Property="Foreground" Value="#bccaf1"/>
+         <Setter Property="Margin" Value="0 0 0 5"/>
+         <Setter Property="Height" Value="45"/>
+         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+         <Setter Property="Tag" Value="#7071f0"/>
+         <Setter Property="Template">
+            <Setter.Value>
+               <ControlTemplate TargetType="Button">
+                  <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="#a5a1f5">
+                     <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                  </Border>
+               </ControlTemplate>
+            </Setter.Value>
+         </Setter>
+      </Style>
+
+      <Style x:Key="btnMenuIconoActive" TargetType="fa:IconImage">
+         <Setter Property="Width" Value="23"/>
+         <Setter Property="Height" Value="23"/>
+         <Setter Property="Margin" Value="35 0 20 0"/>
+         <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+      </Style>
+
+      <Style x:Key="txtMenuActive" TargetType="TextBlock">
+         <Setter Property="FontSize" Value="13"/>
+         <Setter Property="VerticalAlignment" Value="Center"/>
+         <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+      </Style>
+
+      <!-- Estilos barra superior -->
+      <Style x:Key="btnMenuTop" TargetType="Button">
+         <Setter Property="Background" Value="Transparent"/>
+         <Setter Property="Foreground" Value="#9eabe2"/>
+         <Setter Property="Margin" Value="5 0 0 0"/>
+         <Setter Property="Height" Value="30"/>
+         <Setter Property="Width" Value="80"/>
+         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+         <Setter Property="BorderThickness" Value="0"/>
+         <Setter Property="Template">
+            <Setter.Value>
+               <ControlTemplate TargetType="Button">
+                  <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                  </Border>
+               </ControlTemplate>
+            </Setter.Value>
+         </Setter>
+
+         <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+               <Setter Property="Background" Value="#5b60c4"/>
+               <Setter Property="Foreground" Value="#ffffff"/>
+            </Trigger>
+         </Style.Triggers>
+      </Style>
 
 
-        <!-- Estilo boton añadir -->
+      <!-- Estilo boton añadir -->
 
-        <Style x:Key="iconoPlus" TargetType="fa:IconImage">
-            <Setter Property="Width" Value="23"/>
-            <Setter Property="Height" Value="23"/>
-            <Setter Property="Margin" Value="0 0 0 0"/>
-        </Style>
-    </Application.Resources>
+      <Style x:Key="iconoPlus" TargetType="fa:IconImage">
+         <Setter Property="Width" Value="23"/>
+         <Setter Property="Height" Value="23"/>
+         <Setter Property="Margin" Value="0 0 0 0"/>
+      </Style>
+   </Application.Resources>
 </Application>
