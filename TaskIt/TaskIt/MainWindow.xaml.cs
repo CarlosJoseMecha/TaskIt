@@ -71,5 +71,6 @@ namespace TaskIt
       {
          this.WindowState = WindowState.Minimized;
       }
-   }
+
+    }
 }
