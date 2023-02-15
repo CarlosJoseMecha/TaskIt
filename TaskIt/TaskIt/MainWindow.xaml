@@ -25,8 +25,84 @@
                 </LinearGradientBrush>
             </Border.Background>
 
+            <StackPanel >
+                <!-- Nombre de usuario -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 35 0 0">
+                    <Border CornerRadius="50 " Width="40" Height="40">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2" >
+                                <GradientStop Color="#7f7cf1" Offset="0"/>
+                                <GradientStop Color="#d3b7ff" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
 
+                        <TextBlock Text="CM" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" TextAlignment="Center" Margin="0 3 0 2"/>
+                    </Border>
 
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="Carlos Mecha" FontSize="15" Margin="5 0 0 5" Foreground="#ffffff"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Separator Height="0.8" Margin="20 30" Background="#46558a" />
+
+                <!-- Botones -->
+                <Button Style="{StaticResource btnMenu}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Inbox"  />
+                        <TextBlock Text="Recibidos" Style="{StaticResource txtMenu}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource btnMenuActive}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Home"  />
+                        <TextBlock Text="Página principal" Style="{StaticResource txtMenu}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource btnMenu}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Star"  />
+                        <TextBlock Text="Importante" Style="{StaticResource txtMenu}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource btnMenu}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Sun"  />
+                        <TextBlock Text="Hoy" Style="{StaticResource txtMenu}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource btnMenu}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Calendar"  />
+                        <TextBlock Text="Proximos 7 días" Style="{StaticResource txtMenu}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource btnMenu}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Search"  />
+                        <TextBlock Text="Buscar" Style="{StaticResource txtMenu}"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource btnMenu}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="User"  />
+                        <TextBlock Text="Perfil" Style="{StaticResource txtMenu}"/>
+                    </StackPanel>
+                </Button>
+                
+                <Button Style="{StaticResource btnMenu}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Cog"  />
+                        <TextBlock Text="Ajustes" Style="{StaticResource txtMenu}"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
         </Border>
 
         <!--Seccion Principal-->

@@ -17,3 +17,4 @@ H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\TaskIt.csproj.CoreCo
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\TaskIt.csproj.CopyComplete
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Proyecto_Creacion_Interfaces.exe
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Proyecto_Creacion_Interfaces.pdb
+H:\Programacion\DiseñoDeInterfaces\TaskIt\TaskIt\obj\Debug\App.baml
