@@ -10,139 +10,146 @@
        ResizeMode="CanResizeWithGrip"  MinHeight="500"
         MinWidth="500">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="320"  MinWidth="100"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+   <Grid>
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="320"  MinWidth="100"/>
+         <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
 
-        <!-- Menu izquierda -->
-        <Border CornerRadius="10 0 0 10">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" >
-                    <GradientStop Color="#223266" Offset="0"/>
-                    <GradientStop Color="#27396b" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
+      <!-- Menu izquierda -->
+      <Border CornerRadius="10 0 0 10">
+         <Border.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" >
+               <GradientStop Color="#223266" Offset="0"/>
+               <GradientStop Color="#27396b" Offset="1"/>
+            </LinearGradientBrush>
+         </Border.Background>
 
-            <StackPanel >
-                <!-- Nombre de usuario -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 35 0 0">
-                    <Border CornerRadius="50 " Width="40" Height="40">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2" >
-                                <GradientStop Color="#7f7cf1" Offset="0"/>
-                                <GradientStop Color="#d3b7ff" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
+         <StackPanel >
+            <!-- Logo -->
+            <StackPanel Orientation="Horizontal" Width="250px" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 25 0 0">
+               <Border CornerRadius="50 " Width="70" Height="70">
+                  <Image Source="/logo/logoTaskIt.png" Width="70px" Height="70px" />
+               </Border>
 
-                        <TextBlock Text="CM" Foreground="#ffffff" FontSize="22" FontWeight="SemiBold" TextAlignment="Center" Margin="0 3 0 2"/>
-                    </Border>
-
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <TextBlock Text="Carlos Mecha" FontSize="15" Margin="5 0 0 5" Foreground="#ffffff"/>
-                    </StackPanel>
-                </StackPanel>
-
-                <Separator Height="0.8" Margin="20 30" Background="#46558a" />
-
-                <!-- Botones -->
-                <Button Style="{StaticResource btnMenu}">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Inbox"  />
-                        <TextBlock Text="Recibidos" Style="{StaticResource txtMenu}"/>
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource btnMenuActive}">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Home"  />
-                        <TextBlock Text="Página principal" Style="{StaticResource txtMenu}"/>
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource btnMenu}">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Star"  />
-                        <TextBlock Text="Importante" Style="{StaticResource txtMenu}"/>
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource btnMenu}">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Sun"  />
-                        <TextBlock Text="Hoy" Style="{StaticResource txtMenu}"/>
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource btnMenu}">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Calendar"  />
-                        <TextBlock Text="Proximos 7 días" Style="{StaticResource txtMenu}"/>
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource btnMenu}">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Search"  />
-                        <TextBlock Text="Buscar" Style="{StaticResource txtMenu}"/>
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource btnMenu}">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="User"  />
-                        <TextBlock Text="Perfil" Style="{StaticResource txtMenu}"/>
-                    </StackPanel>
-                </Button>
-                
-                <Button Style="{StaticResource btnMenu}">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Cog"  />
-                        <TextBlock Text="Ajustes" Style="{StaticResource txtMenu}"/>
-                    </StackPanel>
-                </Button>
+               <TextBlock Text="TaskIt" FontSize="25" Margin="10 5 0 5" VerticalAlignment="Center" Foreground="#ffffff"/>
             </StackPanel>
-        </Border>
 
-        <!--Seccion Principal-->
+            <Separator Height="0.8" Margin="20 20" Background="#46558a" />
 
-        <Border Grid.Column="1" CornerRadius="0 10 10 0">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
-                    <GradientStop Color="#41518f" Offset="0"/>
-                    <GradientStop Color="#2c386c" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
+            <!-- Botones -->
+            <Button Style="{StaticResource btnMenu}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Inbox"  />
+                  <TextBlock Text="Recibidos" Style="{StaticResource txtMenu}"/>
+               </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource btnMenuActive}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Home"  />
+                  <TextBlock Text="Página principal" Style="{StaticResource txtMenu}"/>
+               </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource btnMenu}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Star"  />
+                  <TextBlock Text="Importante" Style="{StaticResource txtMenu}"/>
+               </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource btnMenu}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Sun"  />
+                  <TextBlock Text="Hoy" Style="{StaticResource txtMenu}"/>
+               </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource btnMenu}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Calendar"  />
+                  <TextBlock Text="Proximos 7 días" Style="{StaticResource txtMenu}"/>
+               </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource btnMenu}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Search"  />
+                  <TextBlock Text="Buscar" Style="{StaticResource txtMenu}"/>
+               </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource btnMenu}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="User"  />
+                  <TextBlock Text="Perfil" Style="{StaticResource txtMenu}"/>
+               </StackPanel>
+            </Button>
+
+            <Button Style="{StaticResource btnMenu}">
+               <StackPanel Orientation="Horizontal">
+                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Cog"  />
+                  <TextBlock Text="Ajustes" Style="{StaticResource txtMenu}"/>
+               </StackPanel>
+            </Button>
+         </StackPanel>
+      </Border>
+
+      <!--Seccion Principal-->
+
+      <Border Grid.Column="1" CornerRadius="0 10 10 0">
+         <Border.Background>
+            <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+               <GradientStop Color="#41518f" Offset="0"/>
+               <GradientStop Color="#2c386c" Offset="1"/>
+            </LinearGradientBrush>
+         </Border.Background>
 
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="200"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+         <Grid>
+            <Grid.RowDefinitions>
+               <RowDefinition Height="auto"/>
+               <RowDefinition Height="auto"/>
+               <RowDefinition Height="*"/>
+               <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 10 10 0">
+            <!-- Botones ventana -->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 15 10 0">
 
-                    <Button Background="Transparent" BorderThickness="0" Click="Button_Minimize" Margin="0 0 10 0" >
-                        <fa:IconImage  Height="3" Icon="WindowMinimize"   />
-                    </Button>
+               <Button Background="Transparent" BorderThickness="0" Click="Button_Minimize" Margin="0 0 10 0" >
+                  <fa:IconImage  Height="3" Icon="WindowMinimize"   />
+               </Button>
 
-                    <Button Background="Transparent" BorderThickness="0" Click="Button_Maximize" Margin="0 0 10 0" >
-                        <fa:IconImage Height="20"  Icon="WindowRestore"  />
-                    </Button>
+               <Button Background="Transparent" BorderThickness="0" Click="Button_Maximize" Margin="0 0 10 0" >
+                  <fa:IconImage Height="20"  Icon="WindowRestore"  />
+               </Button>
 
-                    <Button Background="Transparent" BorderThickness="0" Click="closeButton_Click" Margin="0 0 10 0">
-                        <fa:IconImage  Height="17" Icon="Close"  />
-                    </Button>
+               <Button Background="Transparent" BorderThickness="0" Click="closeButton_Click" Margin="0 0 10 0">
+                  <fa:IconImage  Height="17" Icon="Close"  />
+               </Button>
 
-                </StackPanel>
+            </StackPanel>
 
+            <Grid Grid.Row="1">
+               <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 10 50 0">
 
+                  <Button Content="Hoy" Style="{StaticResource btnMenuTop}" Background="#5b60c4" Foreground="#ffffff" />
+                  <Button Content="Semana" Style="{StaticResource btnMenuTop}" />
+                  <Button Content="Mes" Style="{StaticResource btnMenuTop}"/>
+                  <Button Content="Año" Style="{StaticResource btnMenuTop}" />
+               </StackPanel>
+
+               <TextBlock Text="Tu semana: " FontSize="26" Foreground="#ccd7ff" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50 30 0 20"/>
             </Grid>
-        </Border>
+            <Grid Grid.Row="2"></Grid>
+            <Grid Grid.Row="3"></Grid>
+         </Grid>
 
 
-    </Grid>
+      </Border>
+
+
+   </Grid>
 </Window>

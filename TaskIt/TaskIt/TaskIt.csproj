@@ -104,6 +104,7 @@
     <Content Include="iconos\close.svg" />
     <Content Include="iconos\minimize.svg" />
     <Content Include="iconos\square.svg" />
+    <Resource Include="logo\logoTaskIt.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
