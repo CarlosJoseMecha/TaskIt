@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logoTaskIt.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp, Version=6.2.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.2.1\lib\net472\FontAwesome.Sharp.dll</HintPath>
@@ -104,6 +107,7 @@
     <Content Include="iconos\close.svg" />
     <Content Include="iconos\minimize.svg" />
     <Content Include="iconos\square.svg" />
+    <Resource Include="logoTaskIt.ico" />
     <Resource Include="logo\logoTaskIt.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
