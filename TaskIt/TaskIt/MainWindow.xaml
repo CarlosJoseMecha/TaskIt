@@ -7,8 +7,8 @@
         xmlns:local="clr-namespace:TaskIt"
         mc:Ignorable="d"
         Title="MainWindow" Height="740" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MouseDown="Border_MouseDown"
-       ResizeMode="CanResizeWithGrip"  MinHeight="500"
-        MinWidth="500">
+       ResizeMode="CanResizeWithGrip"  MinHeight="740"
+        MinWidth="1280">
 
    <Grid>
       <Grid.ColumnDefinitions>
@@ -152,31 +152,61 @@
                   </Button>
                </StackPanel>
             </Grid>
-            <!-- Seccion tareas -->
 
+            <!-- Seccion tareas -->
             <Grid Grid.Row="3">
                <Border CornerRadius="10" Background="#243771" Margin="35 25">
                   <!--Interior contenedor-->
-                  <Border CornerRadius="10,10,0,0" Height="50" Background="#FF1D2A54" VerticalAlignment="Top">
-                     <Border CornerRadius="10,10,0,0" Background="#FF16244E" Margin="0 0 0 0">
-                        <Grid>
-                           <Grid.RowDefinitions>
-                              <RowDefinition Height="50"/>
-                              <RowDefinition Height="50"/>
-                              <RowDefinition Height="50"/>
-                              <RowDefinition Height="50"/>
-                           </Grid.RowDefinitions>
+                  <Border CornerRadius="10,10,10,10" Background="#FF16244E" Margin="0 0 0 0">
+                     <Grid>
+                        <Grid.RowDefinitions>
+                           <RowDefinition Height="50"/>
+                           <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
                            <Grid.ColumnDefinitions>
-                              <ColumnDefinition Width="*"/>
+                              <ColumnDefinition Width="*"></ColumnDefinition>
+                              <ColumnDefinition Width="*"></ColumnDefinition>
+                              <ColumnDefinition Width="*"></ColumnDefinition>
                            </Grid.ColumnDefinitions>
-                           <Grid Grid.Row="0">
-                              <TextBlock Grid.Column="0" Text="Tarea" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="90 0 0 0" Foreground="#ffffff" FontSize="16" />
-                              <TextBlock Grid.Column="0" Text="Fecha" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 0" Foreground="#ffffff" FontSize="16" />
-                              <TextBlock Grid.Column="0" Text="Acciones" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 90 0" Foreground="#ffffff" FontSize="16" />
-                           </Grid>
+                           <TextBlock Grid.Column="0" Text="Tarea" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16" />
+                           <TextBlock Grid.Column="1" Text="Fecha" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16" />
+                           <TextBlock Grid.Column="2" Text="Acciones" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16" />
                         </Grid>
-                     </Border>
+                        <Border Grid.Row="1" CornerRadius="0,0,10,10" BorderBrush="Transparent" Background="#FF3F3F93">
+                           <!--Comienzo ListBox-->
+                           <ListBox x:Name="Tareas" HorizontalContentAlignment="Stretch"   BorderBrush="Transparent" Background="Transparent">
+                              <ListBox.ItemTemplate>
+                                 <DataTemplate>
+                                    <Grid Margin="2">
+                                       <Grid.ColumnDefinitions>
+                                          <ColumnDefinition Width="*"></ColumnDefinition>
+                                          <ColumnDefinition Width="*"></ColumnDefinition>
+                                          <ColumnDefinition Width="*"></ColumnDefinition>
+                                       </Grid.ColumnDefinitions>
+
+                                       <TextBlock Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding nombre_tarea}" Foreground="#fff"/>
+                                       <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding fecha}" Foreground="#fff"/>
+
+                                       <StackPanel Grid.Column="2" Orientation="Horizontal"  HorizontalAlignment="Right">
+                                          <Button  Background="Transparent" BorderThickness="0"    >
+                                             <fa:IconImage  Style="{StaticResource btnMenuIcono}" HorizontalAlignment="Right" Icon="Pencil"  />
+                                          </Button>
+
+                                          <Button Background="Transparent" BorderThickness="0"    >
+                                             <fa:IconImage  Style="{StaticResource btnMenuIcono}" HorizontalAlignment="Right" Icon="Close"  />
+                                          </Button>
+                                       </StackPanel>
+                                    </Grid>
+                                 </DataTemplate>
+                              </ListBox.ItemTemplate>
+                           </ListBox>
+                        </Border>
+
+                     </Grid>
                   </Border>
+                  <!-- </Border> -->
                </Border>
             </Grid>
          </Grid>

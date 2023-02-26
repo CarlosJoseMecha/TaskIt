@@ -24,6 +24,15 @@ namespace TaskIt
       {
          InitializeComponent();
          MouseMove += Window_MouseMove;
+
+         //Inicializacion ListBox
+         List<Tarea> tareas = new List<Tarea>();
+         tareas.Add(new Tarea() { nombre_tarea = "Mi tarea 1", fecha = "26/02/2023" });
+         tareas.Add(new Tarea() { nombre_tarea = "Mi tarea 2", fecha = "26/02/2023" });
+         tareas.Add(new Tarea() { nombre_tarea = "Mi tarea 3", fecha = "26/02/2023" });
+         tareas.Add(new Tarea() { nombre_tarea = "Mi tarea 4", fecha = "26/02/2023" });
+
+         Tareas.ItemsSource = tareas;
       }
 
       private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -49,8 +58,6 @@ namespace TaskIt
          }
       }
 
-
-
       private void closeButton_Click(object sender, RoutedEventArgs e)
       {
          Close();
@@ -72,5 +79,11 @@ namespace TaskIt
          this.WindowState = WindowState.Minimized;
       }
 
-    }
+   }
+
+   public class Tarea
+   {
+      public string nombre_tarea { get; set; }
+      public string fecha { get; set; }
+   }
 }
