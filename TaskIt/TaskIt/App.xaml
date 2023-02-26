@@ -6,10 +6,9 @@
    <Application.Resources>
 
       <!-- Estilos botones cerrar, maximizar -->
-      
+
 
       <!-- Estilos menu -->
-
       <Style x:Key="btnMenu" TargetType="Button">
          <Setter Property="Background" Value="Transparent"/>
          <Setter Property="Foreground" Value="#707db2"/>
@@ -136,11 +135,75 @@
 
 
       <!-- Estilo boton añadir -->
-
       <Style x:Key="iconoPlus" TargetType="fa:IconImage">
          <Setter Property="Width" Value="23"/>
          <Setter Property="Height" Value="23"/>
          <Setter Property="Margin" Value="0 0 0 0"/>
       </Style>
+
+      <!--Estilo text box con corner radius-->
+      <Style x:Key="textBoxRedondeado" TargetType="{x:Type TextBox}">
+         <Setter Property="Margin" Value="5"/>
+         <Setter Property="BorderBrush" Value="#999"/>
+         <Setter Property="BorderThickness" Value="1"/>
+         <Setter Property="Foreground" Value="#333"/>
+         <Setter Property="Background" Value="#fff"/>
+         <Setter Property="Padding" Value="5"/>
+         <Setter Property="Template">
+            <Setter.Value>
+               <ControlTemplate TargetType="{x:Type TextBox}">
+                  <Border Background="{TemplateBinding Background}"
+                       BorderBrush="{TemplateBinding BorderBrush}"
+                       BorderThickness="{TemplateBinding BorderThickness}"
+                       CornerRadius="3">
+                     <ScrollViewer x:Name="PART_ContentHost" Focusable="false" />
+                  </Border>
+               </ControlTemplate>
+            </Setter.Value>
+         </Setter>
+      </Style>
+
+      <!-- Estilo labels -->
+      <Style x:Key="labelBlanco" TargetType="{x:Type Label}">
+         <Setter Property="Foreground" Value="#fff"/>
+      </Style>
+
+
+
+      <!-- Color hover botones-->
+      <ControlTemplate x:Key="NoMouseOverButtonTemplate"   
+                 TargetType="Button">
+         <Border Background="{TemplateBinding Background}"  
+          BorderBrush="{TemplateBinding BorderBrush}"  
+          BorderThickness="{TemplateBinding BorderThickness}">
+            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  
+                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+         </Border>
+
+         <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled"  
+             Value="False">
+               <Setter Property="Background"  
+              Value="{x:Static SystemColors.ControlLightBrush}" />
+               <Setter Property="Foreground"  
+              Value="{x:Static SystemColors.GrayTextBrush}" />
+            </Trigger>
+         </ControlTemplate.Triggers>
+      </ControlTemplate>
+
+      <!-- Color hover iconos control-->
+      <Style x:Key="controlIconMouseOver" TargetType="fa:IconImage">
+         <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="False">
+               <Setter Property="Foreground" Value="#fff"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+               <Setter Property="Foreground" Value="red"/>
+            </Trigger>
+         </Style.Triggers>
+      </Style>
+
+
+
    </Application.Resources>
 </Application>

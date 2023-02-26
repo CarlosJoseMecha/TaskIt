@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_Creacion_Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,7 @@ namespace TaskIt
          Tareas.ItemsSource = tareas;
       }
 
+      //Controles ventana
       private void Border_MouseDown(object sender, MouseButtonEventArgs e)
       {
          if (e.ChangedButton == MouseButton.Left)
@@ -77,6 +79,27 @@ namespace TaskIt
       private void Button_Minimize(object sender, RoutedEventArgs e)
       {
          this.WindowState = WindowState.Minimized;
+      }
+
+      //Abrir dialogo nueva tarea
+      private void NuevaTarea(object sender, RoutedEventArgs e)
+      {
+         // Crear la ventana del diálogo de nueva tarea
+         var ventanaNuevaTarea = new NuevaTarea();
+
+         // Mostrar la ventana como diálogo
+         ventanaNuevaTarea.Owner = this;
+         ventanaNuevaTarea.ShowDialog();
+
+         // Si el usuario acepta la nueva tarea, agregarla a la lista de tareas
+         if (ventanaNuevaTarea.DialogResult == true)
+         {
+            var nuevaTarea = ventanaNuevaTarea.nueva_tarea;
+            var tareas = (List<Tarea>)Tareas.ItemsSource;
+            tareas.Add(nuevaTarea);
+            Tareas.ItemsSource = null; // Para refrescar la lista
+            Tareas.ItemsSource = tareas;
+         }
       }
 
    }

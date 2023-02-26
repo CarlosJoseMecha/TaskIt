@@ -115,18 +115,18 @@
                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!-- Botones ventana -->
+            <!-- Controles ventana -->
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 15 10 0">
-               <Button  Background="Transparent" BorderThickness="0" Click="Button_Minimize" Margin="0 0 10 0"  >
-                  <fa:IconImage  Height="3" Icon="WindowMinimize"   />
+               <Button  Background="Transparent" BorderThickness="0" Click="Button_Minimize" Margin="0 0 10 0" Template="{ StaticResource NoMouseOverButtonTemplate}"  >
+                  <fa:IconImage  Height="3" Icon="WindowMinimize"   Style="{StaticResource controlIconMouseOver}"  />
                </Button>
 
-               <Button Background="Transparent" BorderThickness="0" Click="Button_Maximize" Margin="0 0 10 0"  >
-                  <fa:IconImage Height="20"  Icon="WindowRestore"   />
+               <Button Background="Transparent" BorderThickness="0" Click="Button_Maximize" Margin="0 0 10 0" Template="{ StaticResource NoMouseOverButtonTemplate}" >
+                  <fa:IconImage Height="20"  Icon="WindowRestore"   Style="{StaticResource controlIconMouseOver}"  />
                </Button>
 
-               <Button Background="Transparent" BorderThickness="0" Click="closeButton_Click" Margin="0 0 10 0" >
-                  <fa:IconImage  Height="17" Icon="Close"  />
+               <Button Background="Transparent" BorderThickness="0" Click="closeButton_Click" Margin="0 0 10 0" Template="{ StaticResource NoMouseOverButtonTemplate}" >
+                  <fa:IconImage  Height="17" Icon="Close"   Style="{StaticResource controlIconMouseOver}" />
                </Button>
             </StackPanel>
 
@@ -144,7 +144,7 @@
 
             <Grid Grid.Row="2">
                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 15 50 0">
-                  <Button  Style="{StaticResource btnMenuTop}" Background="#5b60c4" Foreground="#ffffff" Width="100px" >
+                  <Button  Style="{StaticResource btnMenuTop}" Background="#5b60c4" Foreground="#ffffff" Width="100px" Click="NuevaTarea" >
                      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock Margin="5 0 5 1">Añadir</TextBlock>
                         <fa:IconImage Height="15" Icon="Plus" Style="{StaticResource iconoPlus}" Foreground="#FF3F3F93"/>
@@ -167,37 +167,46 @@
                         <Grid Grid.Row="0">
                            <Grid.ColumnDefinitions>
                               <ColumnDefinition Width="*"></ColumnDefinition>
-                              <ColumnDefinition Width="*"></ColumnDefinition>
+                              <ColumnDefinition Width="4*"></ColumnDefinition>
+                              <ColumnDefinition Width="4*"></ColumnDefinition>
+                              <ColumnDefinition Width="4*"></ColumnDefinition>
                               <ColumnDefinition Width="*"></ColumnDefinition>
                            </Grid.ColumnDefinitions>
-                           <TextBlock Grid.Column="0" Text="Tarea" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16" />
-                           <TextBlock Grid.Column="1" Text="Fecha" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16" />
-                           <TextBlock Grid.Column="2" Text="Acciones" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16" />
+                           <TextBlock Grid.Column="0" Text="Editar" HorizontalAlignment="center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16" Margin="10 0 0 0" />
+                           <TextBlock Grid.Column="1" Text="Tarea" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16" />
+                           <TextBlock Grid.Column="2" Text="Fecha" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16" />
+                           <TextBlock Grid.Column="3" Text="Detalles" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16"  />
                         </Grid>
                         <Border Grid.Row="1" CornerRadius="0,0,10,10" BorderBrush="Transparent" Background="#FF3F3F93">
                            <!--Comienzo ListBox-->
-                           <ListBox x:Name="Tareas" HorizontalContentAlignment="Stretch"   BorderBrush="Transparent" Background="Transparent">
+                           <ListBox x:Name="Tareas" HorizontalContentAlignment="Stretch"   BorderBrush="Transparent" Background="Transparent" d:ItemsSource="{d:SampleData ItemCount=5}">
                               <ListBox.ItemTemplate>
                                  <DataTemplate>
                                     <Grid Margin="2">
                                        <Grid.ColumnDefinitions>
                                           <ColumnDefinition Width="*"></ColumnDefinition>
-                                          <ColumnDefinition Width="*"></ColumnDefinition>
+                                          <ColumnDefinition Width="4*"></ColumnDefinition>
+                                          <ColumnDefinition Width="4*"></ColumnDefinition>
+                                          <ColumnDefinition Width="4*"></ColumnDefinition>
                                           <ColumnDefinition Width="*"></ColumnDefinition>
                                        </Grid.ColumnDefinitions>
+                                       <Button Grid.Column="0" Background="Transparent" BorderThickness="0">
+                                          <fa:IconImage  Icon="Edit" Foreground="#FF16244E" Height="20"/>
+                                       </Button>
 
-                                       <TextBlock Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding nombre_tarea}" Foreground="#fff"/>
-                                       <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding fecha}" Foreground="#fff"/>
+                                       <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding nombre_tarea}" Foreground="#fff"/>
+                                       <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding fecha}" Foreground="#fff"/>
 
-                                       <StackPanel Grid.Column="2" Orientation="Horizontal"  HorizontalAlignment="Right">
-                                          <Button  Background="Transparent" BorderThickness="0"    >
-                                             <fa:IconImage  Style="{StaticResource btnMenuIcono}" HorizontalAlignment="Right" Icon="Pencil"  />
-                                          </Button>
+                                       <Button Grid.Column="3" Background="Transparent" BorderThickness="0">
+                                          <TextBlock Foreground="#fff">
+                                                Más detalles
+                                          </TextBlock>
+                                       </Button>
+                                       <Button Grid.Column="4" Background="Transparent" BorderThickness="0">
+                                          <fa:IconImage Height="20" Icon="Close" Foreground="#FF16244E"  />
+                                       </Button>
 
-                                          <Button Background="Transparent" BorderThickness="0"    >
-                                             <fa:IconImage  Style="{StaticResource btnMenuIcono}" HorizontalAlignment="Right" Icon="Close"  />
-                                          </Button>
-                                       </StackPanel>
+
                                     </Grid>
                                  </DataTemplate>
                               </ListBox.ItemTemplate>
