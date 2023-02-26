@@ -66,7 +66,7 @@
                      <TextBox Grid.Row="0" Grid.Column="1" x:Name="Nombre_Tarea" Margin="5" Style="{StaticResource textBoxRedondeado}"/>
 
                      <Label Grid.Row="1" Grid.Column="0" Content="Fecha:" Style="{StaticResource labelBlanco}"/>
-                     <TextBox Grid.Row="1" Grid.Column="1" x:Name="Fecha" Margin="5" Style="{StaticResource textBoxRedondeado}"/>
+                     <DatePicker Grid.Row="1" Grid.Column="1" x:Name="Fecha" Margin="5" BorderThickness="0" Style="{StaticResource datePickerReondeado}" />
 
                      <Label Grid.Row="2" Grid.Column="0" Content="Descripción:" Style="{StaticResource labelBlanco}"/>
                      <TextBox Height="100" Grid.Row="2" Grid.Column="1" x:Name="Descripcion" Margin="5"  Style="{StaticResource textBoxRedondeado}"/>

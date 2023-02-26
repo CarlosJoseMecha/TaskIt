@@ -163,6 +163,16 @@
          </Setter>
       </Style>
 
+      <!--Estilo datePicker con corner radius-->
+      <Style x:Key="datePickerReondeado" TargetType="{x:Type DatePicker}">
+         <Setter Property="Margin" Value="5"/>
+         <Setter Property="BorderBrush" Value="#999"/>
+         <Setter Property="BorderThickness" Value="1"/>
+         <Setter Property="Foreground" Value="#333"/>
+         <Setter Property="Background" Value="#fff"/>
+         <Setter Property="Padding" Value="5"/>
+      </Style>
+
       <!-- Estilo labels -->
       <Style x:Key="labelBlanco" TargetType="{x:Type Label}">
          <Setter Property="Foreground" Value="#fff"/>
@@ -202,8 +212,5 @@
             </Trigger>
          </Style.Triggers>
       </Style>
-
-
-
    </Application.Resources>
 </Application>

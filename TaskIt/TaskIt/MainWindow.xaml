@@ -179,10 +179,18 @@
                         </Grid>
                         <Border Grid.Row="1" CornerRadius="0,0,10,10" BorderBrush="Transparent" Background="#FF3F3F93">
                            <!--Comienzo ListBox-->
-                           <ListBox x:Name="Tareas" HorizontalContentAlignment="Stretch"   BorderBrush="Transparent" Background="Transparent" d:ItemsSource="{d:SampleData ItemCount=5}">
+                           <ListBox x:Name="Tareas" HorizontalContentAlignment="Stretch" BorderBrush="Transparent" Background="Transparent" d:ItemsSource="{d:SampleData ItemCount=5}">
                               <ListBox.ItemTemplate>
                                  <DataTemplate>
-                                    <Grid Margin="2">
+                                    <Grid Margin="0" >
+
+                                       <Grid.Background>
+                                          <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+                                             <GradientStop Color="#FF1E2956" Offset="1"/>
+                                             <GradientStop Color="#5867CE" Offset="0"/>
+                                          </LinearGradientBrush>
+                                       </Grid.Background>
+
                                        <Grid.ColumnDefinitions>
                                           <ColumnDefinition Width="*"></ColumnDefinition>
                                           <ColumnDefinition Width="4*"></ColumnDefinition>
@@ -190,32 +198,36 @@
                                           <ColumnDefinition Width="4*"></ColumnDefinition>
                                           <ColumnDefinition Width="*"></ColumnDefinition>
                                        </Grid.ColumnDefinitions>
-                                       <Button Grid.Column="0" Background="Transparent" BorderThickness="0">
-                                          <fa:IconImage  Icon="Edit" Foreground="#FF16244E" Height="20"/>
+
+                                       <Button Grid.Column="0" Background="Transparent" BorderThickness="0" Margin="10" Template="{StaticResource NoMouseOverButtonTemplate}">
+                                          <fa:IconImage  Icon="Edit" Foreground="#fff" Height="20"/>
                                        </Button>
 
                                        <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding nombre_tarea}" Foreground="#fff"/>
                                        <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding fecha}" Foreground="#fff"/>
 
-                                       <Button Grid.Column="3" Background="Transparent" BorderThickness="0">
+                                       <Button Grid.Column="3" Background="Transparent" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}">
                                           <TextBlock Foreground="#fff">
                                                 Más detalles
                                           </TextBlock>
                                        </Button>
-                                       <Button Grid.Column="4" Background="Transparent" BorderThickness="0">
-                                          <fa:IconImage Height="20" Icon="Close" Foreground="#FF16244E"  />
+                                       <Button Grid.Column="4" Background="Transparent" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}">
+                                          <fa:IconImage Height="18" Icon="TrashCan" Style="{StaticResource controlIconMouseOver}"  />
                                        </Button>
-
-
                                     </Grid>
                                  </DataTemplate>
                               </ListBox.ItemTemplate>
+                              <!-- Estilo Listbox -->
+                              <ListBox.ItemContainerStyle>
+                                 <Style TargetType="ListBoxItem">
+                                    <Setter Property="Padding" Value="0"/>
+                                 </Style>
+                              </ListBox.ItemContainerStyle>
+                              <!-- Estilo Listbox -->
                            </ListBox>
                         </Border>
-
                      </Grid>
                   </Border>
-                  <!-- </Border> -->
                </Border>
             </Grid>
          </Grid>
