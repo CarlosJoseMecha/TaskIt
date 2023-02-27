@@ -144,10 +144,10 @@
 
             <Grid Grid.Row="2">
                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 15 50 0">
-                  <Button  Style="{StaticResource btnMenuTop}" Background="#5b60c4" Foreground="#ffffff" Width="100px" Click="NuevaTarea" >
+                  <Button  Style="{StaticResource btnMenuTop}" Background="#5b60c4" Foreground="#ffffff" Width="100px" Click="crearTarea" >
                      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <TextBlock Margin="5 0 5 1">Añadir</TextBlock>
-                        <fa:IconImage Height="15" Icon="Plus" Style="{StaticResource iconoPlus}" Foreground="#FF3F3F93"/>
+                        <fa:IconImage Height="15" Icon="Plus" Style="{StaticResource iconoPlus}" Foreground="#fff"/>
                      </StackPanel>
                   </Button>
                </StackPanel>
@@ -179,7 +179,7 @@
                         </Grid>
                         <Border Grid.Row="1" CornerRadius="0,0,10,10" BorderBrush="Transparent" Background="#FF3F3F93">
                            <!--Comienzo ListBox-->
-                           <ListBox x:Name="Tareas" HorizontalContentAlignment="Stretch" BorderBrush="Transparent" Background="Transparent" d:ItemsSource="{d:SampleData ItemCount=5}">
+                           <ListBox x:Name="ListBoxTareas" HorizontalContentAlignment="Stretch" SelectionMode="Single" BorderBrush="Transparent" Background="Transparent" d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding tareas}">
                               <ListBox.ItemTemplate>
                                  <DataTemplate>
                                     <Grid Margin="0" >
@@ -203,7 +203,7 @@
                                           <fa:IconImage  Icon="Edit" Foreground="#fff" Height="20"/>
                                        </Button>
 
-                                       <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding nombre_tarea}" Foreground="#fff"/>
+                                       <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding nombreTarea }" Foreground="#fff"/>
                                        <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding fecha}" Foreground="#fff"/>
 
                                        <Button Grid.Column="3" Background="Transparent" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}">
@@ -211,7 +211,7 @@
                                                 Más detalles
                                           </TextBlock>
                                        </Button>
-                                       <Button Grid.Column="4" Background="Transparent" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}">
+                                       <Button Grid.Column="4" Background="Transparent" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}" Click="EliminarTarea" >
                                           <fa:IconImage Height="18" Icon="TrashCan" Style="{StaticResource controlIconMouseOver}"  />
                                        </Button>
                                     </Grid>

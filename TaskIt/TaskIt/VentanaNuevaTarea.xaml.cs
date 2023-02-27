@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,15 +16,13 @@ using TaskIt;
 
 namespace Proyecto_Creacion_Interfaces
 {
-   public partial class NuevaTarea : Window
+   public partial class VentanaNuevaTarea : Window
    {
-      public Tarea nueva_tarea { get; set; }
-
-      public NuevaTarea()
+      private List<Tarea> tareas;
+      public VentanaNuevaTarea(ref List<Tarea> tareas)
       {
          InitializeComponent();
-         nueva_tarea = new Tarea();
-         DataContext = nueva_tarea;
+         this.tareas = tareas;
       }
 
       //Controles ventana
@@ -52,6 +51,27 @@ namespace Proyecto_Creacion_Interfaces
       private void Button_Minimize(object sender, RoutedEventArgs e)
       {
          this.WindowState = WindowState.Minimized;
+      }
+
+      //Metodo que cree una nueva tarea.
+      //TODO: Validar todo lo que se introduce, no permitir campos vacios.
+      private void CrearNuevaTarea(object sender, RoutedEventArgs e)
+      {
+         string nombreTarea = Nombre_Tarea.Text;
+         string fecha = Fecha.Text;
+         string descripcion = Descripcion.Text;
+
+         Tarea nuevaTarea = new Tarea(nombreTarea, fecha, descripcion);
+         tareas.Add(nuevaTarea);
+
+         this.DialogResult = true;
+         this.Close();
+      }
+      //Metodo cancelar ventana dialogo añadir nueva tarea.
+      private void CancelarNuevaTarea(object sender, RoutedEventArgs e)
+      {
+         this.DialogResult = false;
+         this.Close();
       }
    }
 

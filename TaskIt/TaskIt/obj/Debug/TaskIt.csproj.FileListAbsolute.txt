@@ -37,5 +37,5 @@ C:\Programacion\DesarrolloDeInterfaces\TaskIt\TaskIt\obj\Debug\TaskIt.csproj.Cor
 C:\Programacion\DesarrolloDeInterfaces\TaskIt\TaskIt\obj\Debug\TaskIt.csproj.CopyComplete
 C:\Programacion\DesarrolloDeInterfaces\TaskIt\TaskIt\obj\Debug\Proyecto_Creacion_Interfaces.exe
 C:\Programacion\DesarrolloDeInterfaces\TaskIt\TaskIt\obj\Debug\Proyecto_Creacion_Interfaces.pdb
-H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\NuevaTarea.g.cs
-H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\NuevaTarea.baml
+H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\VentanaNuevaTarea.g.cs
+H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\VentanaNuevaTarea.baml

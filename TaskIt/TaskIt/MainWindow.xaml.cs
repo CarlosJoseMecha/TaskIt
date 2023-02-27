@@ -16,24 +16,15 @@ using System.Windows.Shapes;
 
 namespace TaskIt
 {
-   /// <summary>
-   /// Lógica de interacción para MainWindow.xaml
-   /// </summary>
    public partial class MainWindow : Window
    {
+      private List<Tarea> tareas;
       public MainWindow()
       {
          InitializeComponent();
          MouseMove += Window_MouseMove;
-
-         //Inicializacion ListBox
-         List<Tarea> tareas = new List<Tarea>();
-         tareas.Add(new Tarea() { nombre_tarea = "Mi tarea 1", fecha = "26/02/2023" });
-         tareas.Add(new Tarea() { nombre_tarea = "Mi tarea 2", fecha = "26/02/2023" });
-         tareas.Add(new Tarea() { nombre_tarea = "Mi tarea 3", fecha = "26/02/2023" });
-         tareas.Add(new Tarea() { nombre_tarea = "Mi tarea 4", fecha = "26/02/2023" });
-
-         Tareas.ItemsSource = tareas;
+         tareas = new List<Tarea>();
+         ListBoxTareas.ItemsSource = tareas.Select(t => new { nombreTarea = t.nombreTarea, fecha = t.fecha, descripcion = t.descripcion }).ToList();
       }
 
       //Controles ventana
@@ -82,31 +73,42 @@ namespace TaskIt
       }
 
       //Abrir dialogo nueva tarea
-      private void NuevaTarea(object sender, RoutedEventArgs e)
+      private void crearTarea(object sender, RoutedEventArgs e)
       {
          // Crear la ventana del diálogo de nueva tarea
-         var ventanaNuevaTarea = new NuevaTarea();
+         var ventanaNuevaTarea = new VentanaNuevaTarea(ref tareas);
 
          // Mostrar la ventana como diálogo
          ventanaNuevaTarea.Owner = this;
          ventanaNuevaTarea.ShowDialog();
 
-         // Si el usuario acepta la nueva tarea, agregarla a la lista de tareas
-         if (ventanaNuevaTarea.DialogResult == true)
+         if (ventanaNuevaTarea.DialogResult.HasValue && ventanaNuevaTarea.DialogResult.Value)
          {
-            var nuevaTarea = ventanaNuevaTarea.nueva_tarea;
-            var tareas = (List<Tarea>)Tareas.ItemsSource;
-            tareas.Add(nuevaTarea);
-            Tareas.ItemsSource = null; // Para refrescar la lista
-            Tareas.ItemsSource = tareas;
+            //resetear la lista
+            Console.WriteLine("Refrescando lista de tareas");
+            ListBoxTareas.ItemsSource = null;
+            ListBoxTareas.ItemsSource = tareas.Select(t => new { nombreTarea = t.nombreTarea, fecha = t.fecha, descripcion = t.descripcion }).ToList();
          }
       }
 
-   }
-
-   public class Tarea
-   {
-      public string nombre_tarea { get; set; }
-      public string fecha { get; set; }
+      //EliminarTarea
+      //TODO: terminar de implementar el metodo de eliminar
+      private void EliminarTarea(object sender, RoutedEventArgs e)
+      {
+        
+         var tareaSeleccionada = ListBoxTareas.SelectedItem as Tarea;
+         Console.WriteLine("Eliminando tarea: " + tareaSeleccionada.ToString());
+         if (tareaSeleccionada != null)
+         {
+            this.tareas.Remove(tareaSeleccionada);
+            ListBoxTareas.ItemsSource = null;
+            ListBoxTareas.ItemsSource = tareas.Select(t => new { nombreTarea = t.nombreTarea, fecha = t.fecha, descripcion = t.descripcion }).ToList();
+            Console.WriteLine("Eliminando tarea 2");
+         }
+         foreach (Tarea tarea in this.tareas)
+         {
+            Console.WriteLine(tarea.ToString());
+         }
+      }
    }
 }
