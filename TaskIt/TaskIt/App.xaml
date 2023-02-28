@@ -213,7 +213,33 @@
          </Style.Triggers>
       </Style>
 
-      <!-- Estilos botones nueva tarea -->
+      <!-- Estilo subrayado de mas detalles -->
+      <Style x:Key="underlineText" TargetType="TextBlock">
+         <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+               <Setter Property="TextDecorations" Value="Underline" />
+            </Trigger>
+         </Style.Triggers>
+      </Style>
+
+
+      <!-- Estilo del cubo de basura de cada elemento de la lista -->
+      <Style x:Key="deleteSelected" TargetType="Button">
+         <Setter Property="Template">
+            <Setter.Value>
+               <ControlTemplate TargetType="Button">
+                  <fa:IconImage x:Name="Icon" Icon="TrashCan" Foreground="#707db2" Height="18" Style="{StaticResource controlIconMouseOver}"/>
+                  <ControlTemplate.Triggers>
+                     <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}" Value="True">
+                        <Setter TargetName="Icon" Property="Foreground" Value="Red" />
+                     </DataTrigger>
+                  </ControlTemplate.Triggers>
+               </ControlTemplate>
+            </Setter.Value>
+         </Setter>
+      </Style>
+
+      <!-- Estilos botones ventana nueva tarea -->
       <Style x:Key="btn-custom" TargetType="Button">
          <Setter Property="Background" Value="#5b60c4"/>
          <Setter Property="Foreground" Value="#9eabe2"/>

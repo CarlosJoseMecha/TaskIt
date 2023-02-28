@@ -24,6 +24,14 @@ namespace TaskIt
          InitializeComponent();
          MouseMove += Window_MouseMove;
          tareas = new List<Tarea>();
+
+         tareas.Add(new Tarea("Tarea 1", "27/02/2023", "Descripcion tarea 1"));
+         tareas.Add(new Tarea("Tarea 2", "27/02/2023", "Descripcion tarea 1"));
+         tareas.Add(new Tarea("Tarea 3", "27/02/2023", "Descripcion tarea 1"));
+         tareas.Add(new Tarea("Tarea 4", "27/02/2023", "Descripcion tarea 1"));
+         tareas.Add(new Tarea("Tarea 5", "27/02/2023", "Descripcion tarea 1"));
+         tareas.Add(new Tarea("Tarea 6", "27/02/2023", "Descripcion tarea 1"));
+         tareas.Add(new Tarea("Tarea 7", "27/02/2023", "Descripcion tarea 1"));
          ListBoxTareas.ItemsSource = tareas.Select(t => new { nombreTarea = t.nombreTarea, fecha = t.fecha, descripcion = t.descripcion }).ToList();
       }
 
@@ -92,22 +100,25 @@ namespace TaskIt
       }
 
       //EliminarTarea
-      //TODO: terminar de implementar el metodo de eliminar
       private void EliminarTarea(object sender, RoutedEventArgs e)
       {
-        
-         var tareaSeleccionada = ListBoxTareas.SelectedItem as Tarea;
-         Console.WriteLine("Eliminando tarea: " + tareaSeleccionada.ToString());
-         if (tareaSeleccionada != null)
+         if (ListBoxTareas.SelectedItems.Count > 0)
          {
-            this.tareas.Remove(tareaSeleccionada);
-            ListBoxTareas.ItemsSource = null;
-            ListBoxTareas.ItemsSource = tareas.Select(t => new { nombreTarea = t.nombreTarea, fecha = t.fecha, descripcion = t.descripcion }).ToList();
-            Console.WriteLine("Eliminando tarea 2");
+            int index = ListBoxTareas.SelectedItems.IndexOf(ListBoxTareas.SelectedItem);
+            if (index != -1)
+            {
+               this.tareas.RemoveAt(index);
+               ListBoxTareas.ItemsSource = null;
+               ListBoxTareas.ItemsSource = tareas.Select(t => new { nombreTarea = t.nombreTarea, fecha = t.fecha, descripcion = t.descripcion }).ToList();
+            }
          }
-         foreach (Tarea tarea in this.tareas)
+      }
+
+      private void ListBoxTareas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+      {
+         if (ListBoxTareas.SelectedIndex != -1)
          {
-            Console.WriteLine(tarea.ToString());
+            Console.WriteLine("El índice del elemento seleccionado es: " + ListBoxTareas.SelectedIndex);
          }
       }
    }
