@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-        xmlns:local="clr-namespace:TaskIt"
+        xmlns:local="clr-namespace:TaskIt" xmlns:local1="clr-namespace:Proyecto_Creacion_Interfaces"
         mc:Ignorable="d"
         Title="MainWindow" Height="740" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MouseDown="Border_MouseDown"
        ResizeMode="CanResizeWithGrip"  MinHeight="740"
@@ -25,69 +25,47 @@
             </LinearGradientBrush>
          </Border.Background>
 
-         <StackPanel >
+         <StackPanel Grid.Column="0">
             <!-- Logo -->
             <StackPanel Orientation="Horizontal" Width="250px" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 25 0 0">
                <Border CornerRadius="50 " Width="70" Height="70">
-                  <Image Source="/logo/logoTaskIt.png" />
+                  <Image Source="/Assets/logoTaskIt.png" />
                </Border>
-
                <TextBlock Text="TaskIt" FontSize="25" Margin="10 5 0 5" VerticalAlignment="Center" Foreground="#ffffff"/>
             </StackPanel>
 
             <Separator Height="0.8" Margin="20 20" Background="#46558a" />
 
             <!-- Botones -->
-            <Button Style="{StaticResource btnMenu}">
-               <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Inbox"  />
-                  <TextBlock Text="Recibidos" Style="{StaticResource txtMenu}"/>
-               </StackPanel>
-            </Button>
-
-            <Button Style="{StaticResource btnMenuActive}" >
+            <Button x:Name="btnPrincipal" Style="{StaticResource btnMenuActive}" Click="btnPrincipal_Click">
                <StackPanel Orientation="Horizontal">
                   <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Home"  />
                   <TextBlock Text="Página principal" Style="{StaticResource txtMenu}"/>
                </StackPanel>
             </Button>
 
-            <Button Style="{StaticResource btnMenu}">
-               <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Star"  />
-                  <TextBlock Text="Importante" Style="{StaticResource txtMenu}"/>
-               </StackPanel>
-            </Button>
-
-            <Button Style="{StaticResource btnMenu}">
+            <Button x:Name="btnHoy" Style="{StaticResource btnMenu}" >
                <StackPanel Orientation="Horizontal">
                   <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Sun"  />
                   <TextBlock Text="Hoy" Style="{StaticResource txtMenu}"/>
                </StackPanel>
             </Button>
 
-            <Button Style="{StaticResource btnMenu}">
+            <Button x:Name="btn7Dias" Style="{StaticResource btnMenu}">
                <StackPanel Orientation="Horizontal">
                   <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Calendar"  />
                   <TextBlock Text="Proximos 7 días" Style="{StaticResource txtMenu}"/>
                </StackPanel>
             </Button>
 
-            <Button Style="{StaticResource btnMenu}">
-               <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Search"  />
-                  <TextBlock Text="Buscar" Style="{StaticResource txtMenu}"/>
-               </StackPanel>
-            </Button>
-
-            <Button Style="{StaticResource btnMenu}" IsEnabled="False">
+            <Button x:Name="btnPerfil" Style="{StaticResource btnMenu}" IsEnabled="False">
                <StackPanel Orientation="Horizontal">
                   <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="User"  />
                   <TextBlock Text="Perfil" Style="{StaticResource txtMenu}"/>
                </StackPanel>
             </Button>
 
-            <Button Style="{StaticResource btnMenu}">
+            <Button x:Name="btnAjuestes" Style="{StaticResource btnMenu}" Click="btnAjustes_Click">
                <StackPanel Orientation="Horizontal">
                   <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Cog"  />
                   <TextBlock Text="Ajustes" Style="{StaticResource txtMenu}"/>
@@ -97,7 +75,6 @@
       </Border>
 
       <!--Seccion Principal-->
-
       <Border Grid.Column="1" CornerRadius="0 10 10 0">
          <Border.Background>
             <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
@@ -106,130 +83,31 @@
             </LinearGradientBrush>
          </Border.Background>
 
-
          <Grid>
             <Grid.RowDefinitions>
-               <RowDefinition Height="auto"/>
-               <RowDefinition Height="auto"/>
-               <RowDefinition Height="auto"/>
+               <RowDefinition Height="60"/>
                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!-- Controles ventana -->
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 15 10 0">
-               <Button  Background="Transparent" BorderThickness="0" Click="Button_Minimize" Margin="0 0 10 0" Template="{ StaticResource NoMouseOverButtonTemplate}"  >
-                  <fa:IconImage  Height="3" Icon="WindowMinimize"   Style="{StaticResource controlIconMouseOver}"  />
+            <!-- Botones minimizar, maximizar, cerrar -->
+            <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
+               <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
+               <Button x:Name="btnRestore" Margin="5,0" Click="btnRestore_Click">
+                  <Button.Style>
+                     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonsStyle}">
+                        <Setter Property="Content" Value="{DynamicResource maximize}"/>
+                        <Style.Triggers>
+                           <DataTrigger Binding="{Binding ElementName=home, Path=WindowState}" Value="Maximized">
+                              <Setter Property="Content" Value="{DynamicResource restore}"/>
+                           </DataTrigger>
+                        </Style.Triggers>
+                     </Style>
+                  </Button.Style>
                </Button>
-
-               <Button Background="Transparent" BorderThickness="0" Click="Button_Maximize" Margin="0 0 10 0" Template="{ StaticResource NoMouseOverButtonTemplate}" >
-                  <fa:IconImage Height="20"  Icon="WindowRestore"   Style="{StaticResource controlIconMouseOver}"  />
-               </Button>
-
-               <Button Background="Transparent" BorderThickness="0" Click="closeButton_Click" Margin="0 0 10 0" Template="{ StaticResource NoMouseOverButtonTemplate}" >
-                  <fa:IconImage  Height="17" Icon="Close"   Style="{StaticResource controlIconMouseOver}" />
-               </Button>
+               <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"/>
             </StackPanel>
-
-
-            <Grid Grid.Row="1">
-               <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 10 50 0">
-
-                  <Button Content="Hoy" Style="{StaticResource btnMenuTop}" Background="#5b60c4" Foreground="#ffffff" />
-                  <Button Content="Semana" Style="{StaticResource btnMenuTop}" />
-                  <Button Content="Mes" Style="{StaticResource btnMenuTop}"/>
-                  <Button Content="Año" Style="{StaticResource btnMenuTop}" />
-               </StackPanel>
-               <TextBlock Text="Tu semana: " FontSize="26" Foreground="#ccd7ff" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50 30 0 20"/>
-            </Grid>
-
-            <Grid Grid.Row="2">
-               <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 15 50 0">
-                  <Button  Style="{StaticResource btnMenuTop}" Background="#5b60c4" Foreground="#ffffff" Width="100px" Click="crearTarea" >
-                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Margin="5 0 5 1">Añadir</TextBlock>
-                        <fa:IconImage Height="15" Icon="Plus" Style="{StaticResource iconoPlus}" Foreground="#fff"/>
-                     </StackPanel>
-                  </Button>
-               </StackPanel>
-            </Grid>
-
-            <!-- Seccion tareas -->
-            <Grid Grid.Row="3">
-               <Border CornerRadius="10" Background="#243771" Margin="35 25">
-                  <!--Interior contenedor-->
-                  <Border CornerRadius="10,10,10,10" Background="#FF16244E" Margin="0 0 0 0">
-                     <Grid>
-                        <Grid.RowDefinitions>
-                           <RowDefinition Height="50"/>
-                           <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-
-                        <Grid Grid.Row="0">
-                           <Grid.ColumnDefinitions>
-                              <ColumnDefinition Width="*"></ColumnDefinition>
-                              <ColumnDefinition Width="4*"></ColumnDefinition>
-                              <ColumnDefinition Width="4*"></ColumnDefinition>
-                              <ColumnDefinition Width="4*"></ColumnDefinition>
-                              <ColumnDefinition Width="*"></ColumnDefinition>
-                           </Grid.ColumnDefinitions>
-                           <TextBlock Grid.Column="0" Text="Editar" HorizontalAlignment="center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16" Margin="10 0 0 0" />
-                           <TextBlock Grid.Column="1" Text="Tarea" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16" />
-                           <TextBlock Grid.Column="2" Text="Fecha" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16" />
-                           <TextBlock Grid.Column="3" Text="Detalles" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="#ffffff" FontSize="16"  />
-                        </Grid>
-                        <Border Grid.Row="1" CornerRadius="0,0,10,10" BorderBrush="Transparent" Background="#FF3F3F93">
-                           <!--Comienzo ListBox-->
-                           <ListBox x:Name="ListBoxTareas" SelectionChanged="ListBoxTareas_SelectionChanged"  HorizontalContentAlignment="Stretch" SelectionMode="Single" BorderBrush="Transparent" Background="Transparent" d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding tareas}">
-                              <ListBox.ItemTemplate>
-                                 <DataTemplate>
-                                    <Grid Margin="0" >
-
-                                       <Grid.Background>
-                                          <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
-                                             <GradientStop Color="#FF1E2956" Offset="1"/>
-                                             <GradientStop Color="#5867CE" Offset="0"/>
-                                          </LinearGradientBrush>
-                                       </Grid.Background>
-
-                                       <Grid.ColumnDefinitions>
-                                          <ColumnDefinition Width="*"></ColumnDefinition>
-                                          <ColumnDefinition Width="4*"></ColumnDefinition>
-                                          <ColumnDefinition Width="4*"></ColumnDefinition>
-                                          <ColumnDefinition Width="4*"></ColumnDefinition>
-                                          <ColumnDefinition Width="*"></ColumnDefinition>
-                                       </Grid.ColumnDefinitions>
-
-                                       <Button Grid.Column="0" Background="Transparent" BorderThickness="0" Margin="10" Template="{StaticResource NoMouseOverButtonTemplate}">
-                                          <fa:IconImage  Icon="Edit" Foreground="#fff" Height="20"/>
-                                       </Button>
-
-                                       <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding nombreTarea }" Foreground="#fff"/>
-                                       <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding fecha}" Foreground="#fff"/>
-
-                                       <StackPanel Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                          <Button Background="Transparent" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}" >
-                                             <TextBlock Foreground="#fff" Text="Más detalles" Style="{StaticResource underlineText}" />
-                                          </Button>
-                                       </StackPanel>
-                                       <Button Grid.Column="4" Background="Transparent" BorderThickness="0" Click="EliminarTarea" Style="{StaticResource deleteSelected}">
-                                          <fa:IconImage Icon="TrashCan" Height="18" Style="{StaticResource controlIconMouseOver}" />
-                                       </Button>
-                                    </Grid>
-                                 </DataTemplate>
-                              </ListBox.ItemTemplate>
-                              <!-- Estilo Listbox -->
-                              <ListBox.ItemContainerStyle>
-                                 <Style TargetType="ListBoxItem">
-                                    <Setter Property="Padding" Value="0"/>
-                                 </Style>
-                              </ListBox.ItemContainerStyle>
-                              <!-- Estilo Listbox -->
-                           </ListBox>
-                        </Border>
-                     </Grid>
-                  </Border>
-               </Border>
-            </Grid>
+            <!-- Frame -->
+            <Frame Grid.Row="1" Name="ContenedorFrame" NavigationUIVisibility="Hidden"/>
          </Grid>
       </Border>
    </Grid>

@@ -18,21 +18,13 @@ namespace TaskIt
 {
    public partial class MainWindow : Window
    {
-      private List<Tarea> tareas;
+
       public MainWindow()
       {
          InitializeComponent();
          MouseMove += Window_MouseMove;
-         tareas = new List<Tarea>();
-
-         tareas.Add(new Tarea("Tarea 1", "27/02/2023", "Descripcion tarea 1"));
-         tareas.Add(new Tarea("Tarea 2", "27/02/2023", "Descripcion tarea 1"));
-         tareas.Add(new Tarea("Tarea 3", "27/02/2023", "Descripcion tarea 1"));
-         tareas.Add(new Tarea("Tarea 4", "27/02/2023", "Descripcion tarea 1"));
-         tareas.Add(new Tarea("Tarea 5", "27/02/2023", "Descripcion tarea 1"));
-         tareas.Add(new Tarea("Tarea 6", "27/02/2023", "Descripcion tarea 1"));
-         tareas.Add(new Tarea("Tarea 7", "27/02/2023", "Descripcion tarea 1"));
-         ListBoxTareas.ItemsSource = tareas.Select(t => new { nombreTarea = t.nombreTarea, fecha = t.fecha, descripcion = t.descripcion }).ToList();
+         //Para que inicie directamente en la pagina principal
+         ContenedorFrame.Navigate(new System.Uri("Paginas/PaginaPrincipal.xaml", UriKind.RelativeOrAbsolute));
       }
 
       //Controles ventana
@@ -59,67 +51,37 @@ namespace TaskIt
          }
       }
 
-      private void closeButton_Click(object sender, RoutedEventArgs e)
+      // Boton minimizar, maximizar y cerrar
+      private void btnClose_Click(object sender, RoutedEventArgs e)
       {
          Close();
       }
 
-      private void Button_Maximize(object sender, RoutedEventArgs e)
+      private void btnRestore_Click(object sender, RoutedEventArgs e)
       {
-         if (this.WindowState == WindowState.Maximized)
-         {
-            this.WindowState = WindowState.Normal;
-         }
+         if (WindowState == WindowState.Normal)
+            WindowState = WindowState.Maximized;
          else
-         {
-            this.WindowState = WindowState.Maximized;
-         }
-      }
-      private void Button_Minimize(object sender, RoutedEventArgs e)
-      {
-         this.WindowState = WindowState.Minimized;
+            WindowState = WindowState.Normal;
       }
 
-      //Abrir dialogo nueva tarea
-      private void crearTarea(object sender, RoutedEventArgs e)
+      private void btnMinimize_Click(object sender, RoutedEventArgs e)
       {
-         // Crear la ventana del diálogo de nueva tarea
-         var ventanaNuevaTarea = new VentanaNuevaTarea(ref tareas);
-
-         // Mostrar la ventana como diálogo
-         ventanaNuevaTarea.Owner = this;
-         ventanaNuevaTarea.ShowDialog();
-
-         if (ventanaNuevaTarea.DialogResult.HasValue && ventanaNuevaTarea.DialogResult.Value)
-         {
-            //resetear la lista
-            Console.WriteLine("Refrescando lista de tareas");
-            ListBoxTareas.ItemsSource = null;
-            ListBoxTareas.ItemsSource = tareas.Select(t => new { nombreTarea = t.nombreTarea, fecha = t.fecha, descripcion = t.descripcion }).ToList();
-         }
+         WindowState = WindowState.Minimized;
       }
 
-      //EliminarTarea
-      private void EliminarTarea(object sender, RoutedEventArgs e)
+      private void btnPrincipal_Click(object sender, RoutedEventArgs e)
       {
-         if (ListBoxTareas.SelectedItems.Count > 0)
-         {
-            int index = ListBoxTareas.SelectedItems.IndexOf(ListBoxTareas.SelectedItem);
-            if (index != -1)
-            {
-               this.tareas.RemoveAt(index);
-               ListBoxTareas.ItemsSource = null;
-               ListBoxTareas.ItemsSource = tareas.Select(t => new { nombreTarea = t.nombreTarea, fecha = t.fecha, descripcion = t.descripcion }).ToList();
-            }
-         }
+         ContenedorFrame.Navigate(new System.Uri("Paginas/PaginaPrincipal.xaml", UriKind.RelativeOrAbsolute));
+         btnPrincipal.Style = (Style)FindResource("btnMenuActive");
+         btnAjuestes.Style = (Style)FindResource("btnMenu");
       }
 
-      private void ListBoxTareas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+      private void btnAjustes_Click(object sender, RoutedEventArgs e)
       {
-         if (ListBoxTareas.SelectedIndex != -1)
-         {
-            Console.WriteLine("El índice del elemento seleccionado es: " + ListBoxTareas.SelectedIndex);
-         }
+         ContenedorFrame.Navigate(new System.Uri("Paginas/Ajustes.xaml", UriKind.RelativeOrAbsolute));
+         btnAjuestes.Style = (Style)FindResource("btnMenuActive");
+         btnPrincipal.Style = (Style)FindResource("btnMenu");
       }
    }
 }

@@ -6,7 +6,6 @@ H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\TaskIt.csproj.Assemb
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\TaskIt.csproj.SuggestedBindingRedirects.cache
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\MainWindow.g.cs
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\App.g.cs
-H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Proyecto_Creacion_Interfaces_Content.g.cs
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Proyecto_Creacion_Interfaces_MarkupCompile.cache
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Proyecto_Creacion_Interfaces_MarkupCompile.lref
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\MainWindow.baml
@@ -39,3 +38,10 @@ C:\Programacion\DesarrolloDeInterfaces\TaskIt\TaskIt\obj\Debug\Proyecto_Creacion
 C:\Programacion\DesarrolloDeInterfaces\TaskIt\TaskIt\obj\Debug\Proyecto_Creacion_Interfaces.pdb
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\VentanaNuevaTarea.g.cs
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\VentanaNuevaTarea.baml
+H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Assets\Iconos.baml
+H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Themes\Azul.baml
+H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Styles\MainStyle.baml
+H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Paginas\PaginaPrincipal.g.cs
+H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Paginas\PaginaPrincipal.baml
+H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Paginas\Ajustes.g.cs
+H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Paginas\Ajustes.baml

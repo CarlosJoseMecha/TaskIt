@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("iconos/close.svg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("iconos/minimize.svg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("iconos/square.svg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logotaskit.ico")]
 
 

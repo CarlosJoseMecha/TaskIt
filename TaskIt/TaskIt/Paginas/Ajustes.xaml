@@ -1,0 +1,26 @@
+﻿<Page x:Class="Proyecto_Creacion_Interfaces.Paginas.Ajustes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Proyecto_Creacion_Interfaces.Paginas"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Ajustes">
+
+   <Border Grid.Column="1" CornerRadius="0 10 10 0">
+      <Border.Background>
+         <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
+            <GradientStop Color="#41518f" Offset="0"/>
+            <GradientStop Color="#2c386c" Offset="1"/>
+         </LinearGradientBrush>
+      </Border.Background>
+
+      <Grid>
+         <TextBlock Text="Ajustes" FontSize="30" Foreground="{DynamicResource PrimaryTextColor}" FontWeight="Bold"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
+      </Grid>
+   </Border>
+
+
+</Page>
