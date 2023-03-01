@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-        xmlns:local="clr-namespace:TaskIt" xmlns:local1="clr-namespace:Proyecto_Creacion_Interfaces"
+        xmlns:paginas="clr-namespace:Proyecto_Creacion_Interfaces.Paginas"
         mc:Ignorable="d"
         Title="MainWindow" Height="740" Width="1280" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MouseDown="Border_MouseDown"
        ResizeMode="CanResizeWithGrip"  MinHeight="740"
@@ -17,13 +17,7 @@
       </Grid.ColumnDefinitions>
 
       <!-- Menu izquierda -->
-      <Border CornerRadius="10 0 0 10">
-         <Border.Background>
-            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" >
-               <GradientStop Color="#223266" Offset="0"/>
-               <GradientStop Color="#27396b" Offset="1"/>
-            </LinearGradientBrush>
-         </Border.Background>
+      <Border CornerRadius="10 0 0 10" Background="{DynamicResource CustomGradientBrushDark}">
 
          <StackPanel Grid.Column="0">
             <!-- Logo -->
@@ -34,40 +28,40 @@
                <TextBlock Text="TaskIt" FontSize="25" Margin="10 5 0 5" VerticalAlignment="Center" Foreground="#ffffff"/>
             </StackPanel>
 
-            <Separator Height="0.8" Margin="20 20" Background="#46558a" />
+            <Separator Height="0.8" Margin="20 20" Background="{DynamicResource BackgroundSecundario}" />
 
             <!-- Botones -->
-            <Button x:Name="btnPrincipal" Style="{StaticResource btnMenuActive}" Click="btnPrincipal_Click">
+            <Button x:Name="btnPrincipal" Style="{DynamicResource btnMenuActive}" Click="btnPrincipal_Click">
                <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Home"  />
+                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Home"  />
                   <TextBlock Text="Página principal" Style="{StaticResource txtMenu}"/>
                </StackPanel>
             </Button>
 
-            <Button x:Name="btnHoy" Style="{StaticResource btnMenu}" >
+            <Button x:Name="btnHoy" Style="{DynamicResource btnMenu}" >
                <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Sun"  />
+                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Sun"  />
                   <TextBlock Text="Hoy" Style="{StaticResource txtMenu}"/>
                </StackPanel>
             </Button>
 
-            <Button x:Name="btn7Dias" Style="{StaticResource btnMenu}">
+            <Button x:Name="btn7Dias" Style="{DynamicResource btnMenu}">
                <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Calendar"  />
+                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Calendar"  />
                   <TextBlock Text="Proximos 7 días" Style="{StaticResource txtMenu}"/>
                </StackPanel>
             </Button>
 
-            <Button x:Name="btnPerfil" Style="{StaticResource btnMenu}" IsEnabled="False">
+            <Button x:Name="btnPerfil" Style="{DynamicResource btnMenu}" >
                <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="User"  />
+                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="User"  />
                   <TextBlock Text="Perfil" Style="{StaticResource txtMenu}"/>
                </StackPanel>
             </Button>
 
-            <Button x:Name="btnAjuestes" Style="{StaticResource btnMenu}" Click="btnAjustes_Click">
+            <Button x:Name="btnAjuestes" Style="{DynamicResource btnMenu}" Click="btnAjustes_Click">
                <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{StaticResource btnMenuIcono}" Icon="Cog"  />
+                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Cog"  />
                   <TextBlock Text="Ajustes" Style="{StaticResource txtMenu}"/>
                </StackPanel>
             </Button>
@@ -75,34 +69,18 @@
       </Border>
 
       <!--Seccion Principal-->
-      <Border Grid.Column="1" CornerRadius="0 10 10 0">
-         <Border.Background>
-            <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
-               <GradientStop Color="#41518f" Offset="0"/>
-               <GradientStop Color="#2c386c" Offset="1"/>
-            </LinearGradientBrush>
-         </Border.Background>
+      <Border Grid.Column="1" CornerRadius="0 10 10 0" Background="{DynamicResource CustomGradientBrush}">
 
          <Grid>
             <Grid.RowDefinitions>
-               <RowDefinition Height="60"/>
+               <RowDefinition Height="40"/>
                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <!-- Botones minimizar, maximizar, cerrar -->
             <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
-               <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
-               <Button x:Name="btnRestore" Margin="5,0" Click="btnRestore_Click">
-                  <Button.Style>
-                     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonsStyle}">
-                        <Setter Property="Content" Value="{DynamicResource maximize}"/>
-                        <Style.Triggers>
-                           <DataTrigger Binding="{Binding ElementName=home, Path=WindowState}" Value="Maximized">
-                              <Setter Property="Content" Value="{DynamicResource restore}"/>
-                           </DataTrigger>
-                        </Style.Triggers>
-                     </Style>
-                  </Button.Style>
+               <Button x:Name="btnClose" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
+               <Button x:Name="btnRestore" Content="{DynamicResource maximize}" Style="{DynamicResource IconButtonsStyle}" Margin="5,0" Click="btnRestore_Click" >
                </Button>
                <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"/>
             </StackPanel>

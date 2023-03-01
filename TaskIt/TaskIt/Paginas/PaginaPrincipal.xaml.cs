@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Proyecto_Creacion_Interfaces.Themes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,15 +23,19 @@ namespace Proyecto_Creacion_Interfaces.Paginas
       public PaginaPrincipal()
       {
          InitializeComponent();
-         tareas = new List<Tarea>();
+         string tema = Properties.Settings.Default.Tema;
+         CargarTema();
+         tareas = new List<Tarea>
+         {
+            new Tarea("Tarea 1", "27/02/2023", "Descripcion tarea 1"),
+            new Tarea("Tarea 2", "27/02/2023", "Descripcion tarea 1"),
+            new Tarea("Tarea 3", "27/02/2023", "Descripcion tarea 1"),
+            new Tarea("Tarea 4", "27/02/2023", "Descripcion tarea 1"),
+            new Tarea("Tarea 5", "27/02/2023", "Descripcion tarea 1"),
+            new Tarea("Tarea 6", "27/02/2023", "Descripcion tarea 1"),
+            new Tarea("Tarea 7", "27/02/2023", "Descripcion tarea 1")
+         };
 
-         tareas.Add(new Tarea("Tarea 1", "27/02/2023", "Descripcion tarea 1"));
-         tareas.Add(new Tarea("Tarea 2", "27/02/2023", "Descripcion tarea 1"));
-         tareas.Add(new Tarea("Tarea 3", "27/02/2023", "Descripcion tarea 1"));
-         tareas.Add(new Tarea("Tarea 4", "27/02/2023", "Descripcion tarea 1"));
-         tareas.Add(new Tarea("Tarea 5", "27/02/2023", "Descripcion tarea 1"));
-         tareas.Add(new Tarea("Tarea 6", "27/02/2023", "Descripcion tarea 1"));
-         tareas.Add(new Tarea("Tarea 7", "27/02/2023", "Descripcion tarea 1"));
          ListBoxTareas.ItemsSource = tareas.Select(t => new { nombreTarea = t.nombreTarea, fecha = t.fecha, descripcion = t.descripcion }).ToList();
       }
 
@@ -73,6 +78,12 @@ namespace Proyecto_Creacion_Interfaces.Paginas
          {
             Console.WriteLine("El índice del elemento seleccionado es: " + ListBoxTareas.SelectedIndex);
          }
+      }
+      public void CargarTema()
+      {
+         Temas temas = new Temas();
+         Application.Current.Resources.MergedDictionaries.Clear();
+         Application.Current.Resources.MergedDictionaries.Add(temas.CargarTema());
       }
    }
 }

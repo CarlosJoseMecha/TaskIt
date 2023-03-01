@@ -87,11 +87,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Styles\MainStyle.xaml">
+    <Page Include="Themes\Atardecer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\Azul.xaml">
+    <Page Include="Themes\Aurora.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Purple Haze.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\AzulProfundo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,6 +116,7 @@
       <DependentUpon>PaginaPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tarea.cs" />
+    <Compile Include="Themes\Temas.cs" />
     <Compile Include="VentanaNuevaTarea.xaml.cs">
       <DependentUpon>VentanaNuevaTarea.xaml</DependentUpon>
     </Compile>

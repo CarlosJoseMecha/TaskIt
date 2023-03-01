@@ -39,9 +39,11 @@ C:\Programacion\DesarrolloDeInterfaces\TaskIt\TaskIt\obj\Debug\Proyecto_Creacion
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\VentanaNuevaTarea.g.cs
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\VentanaNuevaTarea.baml
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Assets\Iconos.baml
-H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Themes\Azul.baml
-H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Styles\MainStyle.baml
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Paginas\PaginaPrincipal.g.cs
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Paginas\PaginaPrincipal.baml
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Paginas\Ajustes.g.cs
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Paginas\Ajustes.baml
+H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Themes\AzulProfundo.baml
+H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Themes\Purple Haze.baml
+H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Themes\Atardecer.baml
+H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Themes\Aurora.baml

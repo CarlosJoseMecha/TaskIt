@@ -4,23 +4,63 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Proyecto_Creacion_Interfaces.Paginas"
+       xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Ajustes">
 
-   <Border Grid.Column="1" CornerRadius="0 10 10 0">
-      <Border.Background>
-         <LinearGradientBrush StartPoint="1,0" EndPoint="0,1" >
-            <GradientStop Color="#41518f" Offset="0"/>
-            <GradientStop Color="#2c386c" Offset="1"/>
-         </LinearGradientBrush>
-      </Border.Background>
+   <Border CornerRadius="0 10 10 0" Background="{DynamicResource CustomGradientBrush}">
 
       <Grid>
-         <TextBlock Text="Ajustes" FontSize="30" Foreground="{DynamicResource PrimaryTextColor}" FontWeight="Bold"
-                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
+         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+         </Grid.RowDefinitions>
+
+         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="30 0 0 10">
+            <fa:IconImage  Icon="Cog" Foreground="{DynamicResource IconoPrimario}" Margin="0 7 10 0" Height="26" Width="26" />
+            <TextBlock Text="Ajustes" FontSize="26" Foreground="{DynamicResource TextoSecundario}" Margin="0 2 00 0"/>
+         </StackPanel>
+
+         <Border Grid.Row="1" Margin="15" CornerRadius="10" Background="{DynamicResource CustomGradientBrushDark}">
+            <Grid>
+               <Grid.RowDefinitions>
+                  <RowDefinition Height="*"/>
+               </Grid.RowDefinitions>
+               <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="*"/>
+               </Grid.ColumnDefinitions>
+
+               <!--Columna 1-->
+               <Grid Margin="15 10 10 10" Grid.Column="0">
+                  <Grid.RowDefinitions>
+                     <RowDefinition  Height="30"/>
+                     <RowDefinition  Height="*"/>
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                     <ColumnDefinition Width="auto"/>
+                     <ColumnDefinition Width="*"/>
+                  </Grid.ColumnDefinitions>
+
+                  <Label Grid.Row="0" Grid.Column="0" Content="Tema" FontSize="14" Foreground="{DynamicResource TextoPrimario}"></Label>
+                  <ComboBox x:Name="Temas" Grid.Row="0" Grid.Column="1" Margin="5" SelectionChanged="CambiarTema">
+                  </ComboBox>
+               </Grid>
+
+               <!--Columna 2-->
+               <Grid Margin="15 10 10 10" Grid.Column="1">
+                  <Grid.RowDefinitions>
+                     <RowDefinition  Height="30"/>
+                     <RowDefinition  Height="*"/>
+                  </Grid.RowDefinitions>
+
+                  <TextBlock FontSize="14" VerticalAlignment="Center" Foreground="{DynamicResource TextoPrimario}">Permite seleccionar un tema para la aplicación.</TextBlock>
+               </Grid>
+
+            </Grid>
+         </Border>
+
       </Grid>
    </Border>
-
-
 </Page>

@@ -6,11 +6,7 @@
    <Application.Resources>
       <ResourceDictionary>
          <ResourceDictionary.MergedDictionaries>
-
-            <ResourceDictionary Source="Themes/Azul.xaml"/>
-            <ResourceDictionary Source="Assets/Iconos.xaml"/>
-            <ResourceDictionary Source="Styles/MainStyle.xaml"/>
-
+            <ResourceDictionary Source="Themes/AzulProfundo.xaml"/>
          </ResourceDictionary.MergedDictionaries>
       </ResourceDictionary>
    </Application.Resources>

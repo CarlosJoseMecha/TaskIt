@@ -1,18 +1,9 @@
-﻿using Proyecto_Creacion_Interfaces;
+﻿using Proyecto_Creacion_Interfaces.Paginas;
+using Proyecto_Creacion_Interfaces.Themes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace TaskIt
 {
@@ -22,7 +13,8 @@ namespace TaskIt
       public MainWindow()
       {
          InitializeComponent();
-         MouseMove += Window_MouseMove;
+
+         //MouseMove += Window_MouseMove;
          //Para que inicie directamente en la pagina principal
          ContenedorFrame.Navigate(new System.Uri("Paginas/PaginaPrincipal.xaml", UriKind.RelativeOrAbsolute));
       }
@@ -83,5 +75,6 @@ namespace TaskIt
          btnAjuestes.Style = (Style)FindResource("btnMenuActive");
          btnPrincipal.Style = (Style)FindResource("btnMenu");
       }
+
    }
 }
