@@ -64,16 +64,27 @@ namespace TaskIt
 
       private void btnPrincipal_Click(object sender, RoutedEventArgs e)
       {
-         ContenedorFrame.Navigate(new System.Uri("Paginas/PaginaPrincipal.xaml", UriKind.RelativeOrAbsolute));
+         
          btnPrincipal.Style = (Style)FindResource("btnMenuActive");
          btnAjuestes.Style = (Style)FindResource("btnMenu");
+         ContenedorFrame.Navigate(new System.Uri("Paginas/PaginaPrincipal.xaml", UriKind.RelativeOrAbsolute));
+         CargarTema();
       }
 
       private void btnAjustes_Click(object sender, RoutedEventArgs e)
       {
-         ContenedorFrame.Navigate(new System.Uri("Paginas/Ajustes.xaml", UriKind.RelativeOrAbsolute));
+         CargarTema();
          btnAjuestes.Style = (Style)FindResource("btnMenuActive");
          btnPrincipal.Style = (Style)FindResource("btnMenu");
+         ContenedorFrame.Navigate(new System.Uri("Paginas/Ajustes.xaml", UriKind.RelativeOrAbsolute));
+
+      }
+
+      public void CargarTema()
+      {
+         Temas temas = new Temas();
+         Application.Current.Resources.MergedDictionaries.Clear();
+         Application.Current.Resources.MergedDictionaries.Add(temas.CargarTema());
       }
 
    }

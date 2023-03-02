@@ -26,11 +26,13 @@
       <GradientStop Color="#9A76A5" Offset="0.5"/>
       <GradientStop Color="#4E6C9D" Offset="1"/>
    </LinearGradientBrush>
+   
    <!-- Gradient activo  -->
    <LinearGradientBrush x:Key="CustomGradientBrushActivo" StartPoint="1,0" EndPoint="0,1" >
       <GradientStop Color="#F9F871" Offset="0"/>
       <GradientStop Color="#FFA880" Offset="1"/>
    </LinearGradientBrush>
+   
    <!-- Gradient Items Listbox  -->
    <LinearGradientBrush x:Key="CustomGradientBrushItem" StartPoint="1,0" EndPoint="0,1" >
       <GradientStop Color="#9A76A5" Offset="1"/>
@@ -39,8 +41,8 @@
 
    <!-- Colores primarios -->
    <SolidColorBrush x:Key="ColorPrimario" Color="#926559"/>
-   <SolidColorBrush x:Key="ColorSecundario" Color="#767CFF"/>
-   <SolidColorBrush x:Key="ColorTerciario" Color="#926559"/>
+   <SolidColorBrush x:Key="ColorSecundario" Color="#F9E79F"/>
+   <SolidColorBrush x:Key="ColorTerciario" Color="#F9E79F"/>
 
    <!-- Colores Texto -->
    <SolidColorBrush x:Key="TextoPrimario" Color="#FFFFFF"/>
@@ -90,7 +92,7 @@
    <!-- Estilos barra superior -->
    <Style x:Key="btnMenuTop" TargetType="Button">
       <Setter Property="Background" Value="Transparent"/>
-      <Setter Property="Foreground" Value="#9eabe2"/>
+      <Setter Property="Foreground" Value="{DynamicResource TextoPrimario}"/><!--color texto-->
       <Setter Property="Margin" Value="5 0 0 0"/>
       <Setter Property="Height" Value="30"/>
       <Setter Property="Width" Value="80"/>
@@ -108,7 +110,7 @@
 
       <Style.Triggers>
          <Trigger Property="IsMouseOver" Value="True">
-            <Setter Property="Background" Value="#5b60c4"/>
+            <Setter Property="Background" Value="{DynamicResource BackgroundTerciario}"/>
             <Setter Property="Foreground" Value="#ffffff"/>
          </Trigger>
       </Style.Triggers>
@@ -117,11 +119,11 @@
    <!-- Estilos menu -->
    <Style x:Key="btnMenu" TargetType="Button">
       <Setter Property="Background" Value="Transparent"/>
-      <Setter Property="Foreground" Value="{DynamicResource ColorTerciario}"/>
+      <Setter Property="Foreground" Value="{DynamicResource ColorSecundario}"/>
       <Setter Property="Margin" Value="0 0 0 5"/>
       <Setter Property="Height" Value="45"/>
       <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-      <Setter Property="Tag" Value="{DynamicResource ColorTerciario}"/>
+      <Setter Property="Tag" Value="{DynamicResource ColorSecundario}"/>
       <!--color icono-->
       <Setter Property="Template">
          <Setter.Value>
@@ -136,7 +138,7 @@
       <Style.Triggers>
          <Trigger Property="IsMouseOver" Value="True">
             <Setter Property="Foreground" Value="#ffffff"/>
-            <Setter Property="Tag" Value="{DynamicResource ColorTerciario}"/>
+            <Setter Property="Tag" Value="{DynamicResource ColorSecundario}"/>
             <!--color barrita izq hover-->
             <Setter Property="Background" Value="{DynamicResource CustomGradientBrushActivo}">
                <!--gradient del hover-->
@@ -145,7 +147,7 @@
             <Setter Property="Template">
                <Setter.Value>
                   <ControlTemplate TargetType="Button">
-                     <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="{DynamicResource ColorTerciario}">
+                     <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="{DynamicResource ColorSecundario}">
                         <!--barrita izq boton menu-->
                         <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
                      </Border>
@@ -176,11 +178,12 @@
       <Setter Property="Margin" Value="0 0 0 5"/>
       <Setter Property="Height" Value="45"/>
       <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-      <Setter Property="Tag" Value="{DynamicResource ColorTerciario}"/> <!--color icono active-->
+      <Setter Property="Tag" Value="{DynamicResource ColorSecundario}"/>
+      <!--color icono active-->
       <Setter Property="Template">
          <Setter.Value>
             <ControlTemplate TargetType="Button">
-               <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="#926559">
+               <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="#F9F871"> <!--color barra izq activo-->
                   <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
                </Border>
             </ControlTemplate>
@@ -208,6 +211,7 @@
       <Setter Property="Margin" Value="0 0 0 0"/>
    </Style>
 
+   <!--ESTILOS NUEVA TAREA DIALOGO-->
    <!--Estilo text box con corner radius-->
    <Style x:Key="textBoxRedondeado" TargetType="{x:Type TextBox}">
       <Setter Property="Margin" Value="5"/>
@@ -293,7 +297,7 @@
       <Setter Property="Template">
          <Setter.Value>
             <ControlTemplate TargetType="Button">
-               <fa:IconImage x:Name="Icon" Icon="Trash" Foreground="#707db2" Height="18" Style="{StaticResource controlIconMouseOver}"/>
+               <fa:IconImage x:Name="Icon" Icon="Trash" Foreground="#fff" Height="18" Style="{StaticResource controlIconMouseOver}"/>
                <ControlTemplate.Triggers>
                   <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}" Value="True">
                      <Setter TargetName="Icon" Property="Foreground" Value="Red" />

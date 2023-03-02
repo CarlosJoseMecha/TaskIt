@@ -9,7 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Pagina Principal">
 
-   <Border Grid.Column="1" CornerRadius="0 10 10 0" Background="{DynamicResource CustomGradientBrush}">
+   <Border Grid.Column="1" CornerRadius="0 10 10 0" >
 
       <Grid>
          <Grid.RowDefinitions>
@@ -21,12 +21,12 @@
 
          <Grid>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 50 0">
-               <Button Content="Hoy" Style="{StaticResource btnMenuTop }" Background="#5b60c4" Foreground="{DynamicResource TextoPrimario}" />
-               <Button Content="Semana" Style="{StaticResource btnMenuTop}" />
-               <Button Content="Mes" Style="{StaticResource btnMenuTop}"/>
-               <Button Content="Año" Style="{StaticResource btnMenuTop}" />
+               <Button Content="Hoy" Style="{DynamicResource btnMenuTop }" Background="{DynamicResource BackgroundTerciario}" Foreground="{DynamicResource TextoPrimario}" />
+               <Button Content="Semana" Style="{DynamicResource btnMenuTop}" />
+               <Button Content="Mes" Style="{DynamicResource btnMenuTop}"/>
+               <Button Content="Año" Style="{DynamicResource btnMenuTop}" />
             </StackPanel>
-            <TextBlock Text="Principal" FontSize="26" Padding="5" Foreground="{DynamicResource TextoSecundario}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25 15 0 20"/>
+            <TextBlock Text="Principal" FontSize="26" Padding="5" Foreground="{DynamicResource TextoPrimario}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25 15 0 20"/>
          </Grid>
 
          <Grid Grid.Row="2" Margin="0 0 0 10">
@@ -43,7 +43,7 @@
          <!-- Seccion tareas -->
          <Grid Grid.Row="3">
             <!--Interior contenedor-->
-            <Border CornerRadius="10" Background="{DynamicResource BackgroundPrimario}" Margin="20">
+            <Border CornerRadius="10" Background="{DynamicResource BackgroundTerciario}" Margin="20">
                <Grid>
                   <Grid.RowDefinitions>
                      <RowDefinition Height="50"/>
@@ -63,7 +63,7 @@
                      <TextBlock Grid.Column="2" Text="Fecha" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="{DynamicResource TextoPrimario}" FontSize="16" />
                      <TextBlock Grid.Column="3" Text="Detalles" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="{DynamicResource TextoPrimario}" FontSize="16"  />
                   </Grid>
-                  <Border Grid.Row="1" CornerRadius="0,0,10,10" BorderBrush="Transparent" Background="{DynamicResource BackgroundSecundario}">
+                  <Border Grid.Row="1" CornerRadius="0,0,10,10" BorderBrush="Transparent" Background="{DynamicResource CustomGradientBrush}">
                      <!--Comienzo ListBox-->
                      <ListBox x:Name="ListBoxTareas" SelectionChanged="ListBoxTareas_SelectionChanged"  HorizontalContentAlignment="Stretch" SelectionMode="Single" BorderBrush="Transparent" Background="Transparent" d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding tareas}">
                         <ListBox.ItemTemplate>
@@ -91,7 +91,7 @@
                                     </Button>
                                  </StackPanel>
                                  <Button Grid.Column="4" Background="Transparent" BorderThickness="0" Click="EliminarTarea" Style="{StaticResource deleteSelected}">
-                                    <fa:IconImage Icon="Trash" Height="18" Style="{StaticResource controlIconMouseOver}" />
+                                    <fa:IconImage Icon="Trash" Height="18" Style="{DynamicResource controlIconMouseOver}" />
                                  </Button>
                               </Grid>
                            </DataTemplate>

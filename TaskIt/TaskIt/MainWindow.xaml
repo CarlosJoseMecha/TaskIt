@@ -40,21 +40,21 @@
 
             <Button x:Name="btnHoy" Style="{DynamicResource btnMenu}" >
                <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Sun"  />
+                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Sun" IsEnabled="False"  />
                   <TextBlock Text="Hoy" Style="{StaticResource txtMenu}"/>
                </StackPanel>
             </Button>
 
             <Button x:Name="btn7Dias" Style="{DynamicResource btnMenu}">
                <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Calendar"  />
+                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Calendar" IsEnabled="False" />
                   <TextBlock Text="Proximos 7 días" Style="{StaticResource txtMenu}"/>
                </StackPanel>
             </Button>
 
             <Button x:Name="btnPerfil" Style="{DynamicResource btnMenu}" >
                <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="User"  />
+                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="User" IsEnabled="False" />
                   <TextBlock Text="Perfil" Style="{StaticResource txtMenu}"/>
                </StackPanel>
             </Button>
