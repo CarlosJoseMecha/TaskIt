@@ -8,3 +8,12 @@ consejos para solucionar fallos o mofificar características para la adecuación
 10/02/2023
 Recordad añadir aquí todas tus notas.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+03/03/2023
+Primera versión "funcional".
+-Permite ver página principal ,ajustes y navegar entre las dos vistas.
+-Permite añadir tareas nuevas, ver sus detalles y seleccionar una tarea y eliminarla. (De momento viene con tareas preestablecidas para rellenar la lista y no guarda las tareas que se añaden nuevas). El siguiente paso es hacer una base de datos para tener persistencia de datos de las tareas.
+-Permite elegir entre 3 temas de colores diferentes.
+-El tema elegido se guarda en el archivo App.config
+-Toda la interfaz está realizada con Grid, por lo que no se deforma al redimensionar.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
