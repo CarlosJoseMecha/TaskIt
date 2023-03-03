@@ -44,14 +44,13 @@ namespace Proyecto_Creacion_Interfaces.Paginas
       {
          // Crear la ventana del diálogo de nueva tarea
          var ventanaNuevaTarea = new VentanaNuevaTarea(ref tareas);
-
+         ventanaNuevaTarea.Owner = Application.Current.MainWindow;
          // Mostrar la ventana como diálogo
          ventanaNuevaTarea.ShowDialog();
 
          if (ventanaNuevaTarea.DialogResult.HasValue && ventanaNuevaTarea.DialogResult.Value)
          {
             //resetear la lista
-            Console.WriteLine("Refrescando lista de tareas");
             ListBoxTareas.ItemsSource = null;
             ListBoxTareas.ItemsSource = tareas.Select(t => new { nombreTarea = t.nombreTarea, fecha = t.fecha, descripcion = t.descripcion }).ToList();
          }
