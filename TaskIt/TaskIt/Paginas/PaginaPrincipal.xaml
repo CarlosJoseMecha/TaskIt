@@ -33,7 +33,7 @@
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 15 50 0">
                <Button  Style="{DynamicResource btnAñadir}" Width="100px" Click="crearTarea" >
                   <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                     <TextBlock Margin="5 0 5 1">Añadir</TextBlock>
+                     <TextBlock  Margin="5 0 5 1">Añadir</TextBlock>
                      <fa:IconImage  Height="15" Icon="Plus" Style="{DynamicResource iconoPlus}" />
                   </StackPanel>
                </Button>
@@ -86,7 +86,7 @@
                                  <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding fecha}" Foreground="{DynamicResource TextoPrimario}"/>
 
                                  <StackPanel Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <Button Background="Transparent" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}" >
+                                    <Button Background="Transparent" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}" Click="Ver_Detalles" >
                                        <TextBlock Foreground="{DynamicResource TextoPrimario}" Text="Más detalles" Style="{StaticResource underlineText}" />
                                     </Button>
                                  </StackPanel>

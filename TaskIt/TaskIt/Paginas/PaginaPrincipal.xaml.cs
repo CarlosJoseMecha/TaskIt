@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace Proyecto_Creacion_Interfaces.Paginas
    public partial class PaginaPrincipal : Page
    {
       private List<Tarea> tareas;
+
       public PaginaPrincipal()
       {
          InitializeComponent();
@@ -83,6 +85,44 @@ namespace Proyecto_Creacion_Interfaces.Paginas
          Temas temas = new Temas();
          Application.Current.Resources.MergedDictionaries.Clear();
          Application.Current.Resources.MergedDictionaries.Add(temas.CargarTema());
+      }
+
+      private void Ver_Detalles(object sender, RoutedEventArgs e)
+      {
+         // Crear la ventana del diálogo de nueva tarea
+         var ventanaDetalles = new VentanaDetalles();
+         ventanaDetalles.Owner = Application.Current.MainWindow;
+
+         Button botonPresionado = sender as Button;
+         ListBoxItem listBoxItem = FindAncestor<ListBoxItem>(botonPresionado);
+         int index = ListBoxTareas.Items.IndexOf(listBoxItem.Content);
+
+         if (index != -1)
+         {
+            ventanaDetalles.NombreTarea.Text = tareas.ElementAt(index).GetNombreTarea();
+            ventanaDetalles.FechaTarea.Text = tareas.ElementAt(index).GetFecha();
+            ventanaDetalles.DescripcionTarea.Text = tareas.ElementAt(index).GetDescripcion();
+         }
+
+         ventanaDetalles.ShowDialog();
+      }
+
+      public static T FindAncestor<T>(DependencyObject current)
+    where T : DependencyObject
+      {
+         current = VisualTreeHelper.GetParent(current);
+
+         while (current != null)
+         {
+            if (current is T result)
+            {
+               return result;
+            }
+
+            current = VisualTreeHelper.GetParent(current);
+         }
+
+         return null;
       }
    }
 }

@@ -107,6 +107,7 @@
    <Style x:Key="btnAñadir" TargetType="Button">
       <Setter Property="Background" Value="#5b60c4"/>
       <Setter Property="Foreground" Value="{DynamicResource TextoSecundario}"/>
+      <Setter Property="FontWeight" Value="Bold"/>
       <Setter Property="Height" Value="30"/>
       <Setter Property="Width" Value="80"/>
       <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -356,8 +357,8 @@
 
    <!-- Estilos botones ventana nueva tarea -->
    <Style x:Key="btn-custom" TargetType="Button">
-      <Setter Property="Background" Value="#5b60c4"/>
-      <Setter Property="Foreground" Value="#9eabe2"/>
+      <Setter Property="Background" Value="{DynamicResource BackgroundSecundario}"/>
+      <Setter Property="Foreground" Value="{DynamicResource TextoPrimario}"/>
       <Setter Property="Margin" Value="0 0 0 0"/>
       <Setter Property="Height" Value="30"/>
       <Setter Property="Width" Value="100"/>

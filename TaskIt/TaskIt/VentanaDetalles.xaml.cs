@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,17 +11,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using TaskIt;
 
 namespace Proyecto_Creacion_Interfaces
 {
-   public partial class VentanaNuevaTarea : Window
+   public partial class VentanaDetalles : Window
    {
-      private List<Tarea> tareas;
-      public VentanaNuevaTarea(ref List<Tarea> tareas)
+      public VentanaDetalles()
       {
          InitializeComponent();
-         this.tareas = tareas;
+      }
+
+      public string NombreTareaText
+      {
+         get { return NombreTarea.Text; }
+         set { NombreTarea.Text = value; }
       }
 
       //Controles ventana
@@ -53,27 +55,6 @@ namespace Proyecto_Creacion_Interfaces
          this.WindowState = WindowState.Minimized;
       }
 
-      //Metodo que cree una nueva tarea.
-      //TODO: Validar todo lo que se introduce, no permitir campos vacios.
-      private void CrearNuevaTarea(object sender, RoutedEventArgs e)
-      {
-         string nombreTarea = Nombre_Tarea.Text;
-         string fecha = Fecha.Text;
-         string descripcion = Descripcion.Text;
 
-         Tarea nuevaTarea = new Tarea(nombreTarea, fecha, descripcion);
-         tareas.Add(nuevaTarea);
-
-         this.DialogResult = true;
-         this.Close();
-      }
-
-      //Metodo cancelar ventana dialogo añadir nueva tarea.
-      private void CancelarNuevaTarea(object sender, RoutedEventArgs e)
-      {
-         this.DialogResult = false;
-         this.Close();
-      }
    }
-
 }

@@ -99,6 +99,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="VentanaDetalles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VentanaNuevaTarea.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +117,9 @@
     </Compile>
     <Compile Include="Tarea.cs" />
     <Compile Include="Themes\Temas.cs" />
+    <Compile Include="VentanaDetalles.xaml.cs">
+      <DependentUpon>VentanaDetalles.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaNuevaTarea.xaml.cs">
       <DependentUpon>VentanaNuevaTarea.xaml</DependentUpon>
     </Compile>
