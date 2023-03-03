@@ -46,4 +46,3 @@ H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Paginas\Ajustes.baml
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Themes\AzulProfundo.baml
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Themes\Purple Haze.baml
 H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Themes\Atardecer.baml
-H:\Programacion\DiseñoDeInterfaces\Taskit\TaskIt\obj\Debug\Themes\Aurora.baml

@@ -34,35 +34,35 @@
             <Button x:Name="btnPrincipal" Style="{DynamicResource btnMenuActive}" Click="btnPrincipal_Click">
                <StackPanel Orientation="Horizontal">
                   <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Home"  />
-                  <TextBlock Text="Página principal" Style="{StaticResource txtMenu}"/>
+                  <TextBlock Text="Página principal" Style="{DynamicResource txtMenu}"/>
                </StackPanel>
             </Button>
 
-            <Button x:Name="btnHoy" Style="{DynamicResource btnMenu}" >
+            <Button x:Name="btnHoy" Style="{DynamicResource btnMenu}" IsEnabled="False" >
                <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Sun" IsEnabled="False"  />
-                  <TextBlock Text="Hoy" Style="{StaticResource txtMenu}"/>
+                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Sun"   />
+                  <TextBlock Text="Hoy" Style="{DynamicResource txtMenu}"/>
                </StackPanel>
             </Button>
 
-            <Button x:Name="btn7Dias" Style="{DynamicResource btnMenu}">
+            <Button x:Name="btn7Dias" Style="{DynamicResource btnMenu}" IsEnabled="False">
                <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Calendar" IsEnabled="False" />
-                  <TextBlock Text="Proximos 7 días" Style="{StaticResource txtMenu}"/>
+                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Calendar"  />
+                  <TextBlock Text="Proximos 7 días" Style="{DynamicResource txtMenu}"/>
                </StackPanel>
             </Button>
 
-            <Button x:Name="btnPerfil" Style="{DynamicResource btnMenu}" >
+            <Button x:Name="btnPerfil" Style="{DynamicResource btnMenu}" IsEnabled="False" >
                <StackPanel Orientation="Horizontal">
-                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="User" IsEnabled="False" />
-                  <TextBlock Text="Perfil" Style="{StaticResource txtMenu}"/>
+                  <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="User"  />
+                  <TextBlock Text="Perfil" Style="{DynamicResource txtMenu}"/>
                </StackPanel>
             </Button>
 
-            <Button x:Name="btnAjuestes" Style="{DynamicResource btnMenu}" Click="btnAjustes_Click">
+            <Button x:Name="btnAjustes" Style="{DynamicResource btnMenu}" Click="btnAjustes_Click">
                <StackPanel Orientation="Horizontal">
                   <fa:IconImage Style="{DynamicResource btnMenuIcono}" Icon="Cog"  />
-                  <TextBlock Text="Ajustes" Style="{StaticResource txtMenu}"/>
+                  <TextBlock Text="Ajustes" Style="{DynamicResource txtMenu}"/>
                </StackPanel>
             </Button>
          </StackPanel>

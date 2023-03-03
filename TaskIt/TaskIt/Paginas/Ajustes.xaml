@@ -19,7 +19,7 @@
 
          <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="30 0 0 10">
             <fa:IconImage  Icon="Cog" Foreground="{DynamicResource IconoPrimario}" Margin="0 7 10 0" Height="26" Width="26" />
-            <TextBlock Text="Ajustes" FontSize="26" Foreground="{DynamicResource TextoSecundario}" Margin="0 2 00 0"/>
+            <TextBlock Text="Ajustes" FontSize="26" Foreground="{DynamicResource TextoPrimario}" Margin="0 2 00 0"/>
          </StackPanel>
 
          <Border Grid.Row="1" Margin="15" CornerRadius="10" Background="{DynamicResource CustomGradientBrushDark}">

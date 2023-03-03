@@ -2,6 +2,7 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using TaskIt;
 
 namespace Proyecto_Creacion_Interfaces.Paginas
 {
@@ -15,7 +16,6 @@ namespace Proyecto_Creacion_Interfaces.Paginas
          this.Temas.Items.Add("AzulProfundo");
          this.Temas.Items.Add("Purple Haze");
          this.Temas.Items.Add("Atardecer");
-         this.Temas.Items.Add("Aurora");
 
          if (tema != null)
          {
@@ -30,10 +30,6 @@ namespace Proyecto_Creacion_Interfaces.Paginas
             if (tema == "Atardecer")
             {
                Temas.SelectedIndex = 2;
-            }
-            if (tema == "Aurora")
-            {
-               Temas.SelectedIndex = 3;
             }
          }
          CargarTema();
@@ -53,18 +49,18 @@ namespace Proyecto_Creacion_Interfaces.Paginas
          {
             Properties.Settings.Default.Tema = "Atardecer";
          }
-         else if (Temas.SelectedIndex == 3)
-         {
-            Properties.Settings.Default.Tema = "Aurora";
-         }
          Properties.Settings.Default.Save();
          CargarTema();
       }
       public void CargarTema()
       {
+         MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+         Console.WriteLine("Cargando tema");
          Temas temas = new Temas();
          Application.Current.Resources.MergedDictionaries.Clear();
          Application.Current.Resources.MergedDictionaries.Add(temas.CargarTema());
+         mainWindow.BtnPrincipal.Style = (Style)FindResource("btnMenu");
+         mainWindow.BtnAjustes.Style = (Style)FindResource("btnMenuActive");
       }
    }
 }

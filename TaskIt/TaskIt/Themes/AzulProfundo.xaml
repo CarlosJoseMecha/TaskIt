@@ -103,6 +103,61 @@
       </Style.Triggers>
    </Style>
 
+   <!-- Boton añadir -->
+   <Style x:Key="btnAñadir" TargetType="Button">
+      <Setter Property="Background" Value="#5b60c4"/>
+      <Setter Property="Foreground" Value="{DynamicResource TextoSecundario}"/>
+      <Setter Property="Height" Value="30"/>
+      <Setter Property="Width" Value="80"/>
+      <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="Template">
+         <Setter.Value>
+            <ControlTemplate TargetType="Button">
+               <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                  <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                     <ContentPresenter.Content>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                           <TextBlock Margin="5 0 5 1">Añadir</TextBlock>
+                           <fa:IconImage Icon="Plus" Style="{DynamicResource iconoPlus}" />
+                        </StackPanel>
+                     </ContentPresenter.Content>
+                  </ContentPresenter>
+               </Border>
+            </ControlTemplate>
+         </Setter.Value>
+      </Setter>
+
+      <Style.Triggers>
+         <Trigger Property="IsMouseOver" Value="True">
+            <Setter Property="Background" Value="#223266"/>
+            <Setter Property="Foreground" Value="#ffffff"/>
+            <Setter Property="Template">
+               <Setter.Value>
+                  <ControlTemplate TargetType="Button">
+                     <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                           <ContentPresenter.Content>
+                              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                 <TextBlock Margin="5 0 5 1" Foreground="{DynamicResource TextoPrimario}">Añadir</TextBlock>
+                                 <fa:IconImage Icon="Plus" Style="{DynamicResource iconoPlus}" Foreground="{DynamicResource TextoPrimario}" />
+                              </StackPanel>
+                           </ContentPresenter.Content>
+                        </ContentPresenter>
+                     </Border>
+                  </ControlTemplate>
+               </Setter.Value>
+            </Setter>
+         </Trigger>
+      </Style.Triggers>
+   </Style>
+
+   <Style x:Key="iconoPlus" TargetType="fa:IconImage">
+      <Setter Property="Height" Value="15"/>
+      <Setter Property="Foreground" Value="{DynamicResource TextoSecundario}"/>
+   </Style>
+   
+   
    <!-- Estilos menu -->
    <Style x:Key="btnMenu" TargetType="Button">
       <Setter Property="Background" Value="Transparent"/>
@@ -200,12 +255,6 @@
       <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
    </Style>
 
-   <!-- Estilo boton añadir -->
-   <Style x:Key="iconoPlus" TargetType="fa:IconImage">
-      <Setter Property="Width" Value="23"/>
-      <Setter Property="Height" Value="23"/>
-      <Setter Property="Margin" Value="0 0 0 0"/>
-   </Style>
 
    <!--Estilo text box con corner radius-->
    <Style x:Key="textBoxRedondeado" TargetType="{x:Type TextBox}">

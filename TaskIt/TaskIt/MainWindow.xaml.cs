@@ -9,7 +9,8 @@ namespace TaskIt
 {
    public partial class MainWindow : Window
    {
-
+      public Button BtnPrincipal { get; set; }
+      public Button BtnAjustes { get; set; }
       public MainWindow()
       {
          InitializeComponent();
@@ -17,6 +18,9 @@ namespace TaskIt
          //MouseMove += Window_MouseMove;
          //Para que inicie directamente en la pagina principal
          ContenedorFrame.Navigate(new System.Uri("Paginas/PaginaPrincipal.xaml", UriKind.RelativeOrAbsolute));
+         // Asigna los botones para poder referenciarlos en otra pagina.
+         BtnPrincipal = btnPrincipal;
+         BtnAjustes = btnAjustes;
       }
 
       //Controles ventana
@@ -64,28 +68,27 @@ namespace TaskIt
 
       private void btnPrincipal_Click(object sender, RoutedEventArgs e)
       {
-         
+
          btnPrincipal.Style = (Style)FindResource("btnMenuActive");
-         btnAjuestes.Style = (Style)FindResource("btnMenu");
+         btnAjustes.Style = (Style)FindResource("btnMenu");
          ContenedorFrame.Navigate(new System.Uri("Paginas/PaginaPrincipal.xaml", UriKind.RelativeOrAbsolute));
-         CargarTema();
+         // Actualizar la ventana
+         this.InvalidateVisual();
       }
 
       private void btnAjustes_Click(object sender, RoutedEventArgs e)
       {
-         CargarTema();
-         btnAjuestes.Style = (Style)FindResource("btnMenuActive");
+         btnAjustes.Style = (Style)FindResource("btnMenuActive");
          btnPrincipal.Style = (Style)FindResource("btnMenu");
          ContenedorFrame.Navigate(new System.Uri("Paginas/Ajustes.xaml", UriKind.RelativeOrAbsolute));
-
       }
-
       public void CargarTema()
       {
          Temas temas = new Temas();
          Application.Current.Resources.MergedDictionaries.Clear();
          Application.Current.Resources.MergedDictionaries.Add(temas.CargarTema());
       }
+
 
    }
 }

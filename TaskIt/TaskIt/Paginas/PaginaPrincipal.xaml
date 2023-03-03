@@ -31,10 +31,10 @@
 
          <Grid Grid.Row="2" Margin="0 0 0 10">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 15 50 0">
-               <Button  Style="{StaticResource btnMenuTop}" Background="{DynamicResource BackgroundTerciario}" Foreground="{DynamicResource TextoPrimario}" Width="100px" Click="crearTarea" >
+               <Button  Style="{DynamicResource btnAñadir}" Width="100px" Click="crearTarea" >
                   <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                      <TextBlock Margin="5 0 5 1">Añadir</TextBlock>
-                     <fa:IconImage Height="15" Icon="Plus" Style="{StaticResource iconoPlus}" Foreground="{DynamicResource IconoPrimario}"/>
+                     <fa:IconImage  Height="15" Icon="Plus" Style="{DynamicResource iconoPlus}" />
                   </StackPanel>
                </Button>
             </StackPanel>

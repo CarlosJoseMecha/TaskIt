@@ -12,6 +12,7 @@
    <SolidColorBrush x:Key="BackgroundPrimario" Color="#D07FA6" />
    <SolidColorBrush x:Key="BackgroundSecundario" Color="#FFCE6D"/>
    <SolidColorBrush x:Key="BackgroundTerciario" Color="#9A76A5"/>
+   <SolidColorBrush x:Key="BackgroundCuaternario" Color="#FFA880"/>
 
    <!-- Gradient oscuro  -->
    <LinearGradientBrush x:Key="CustomGradientBrushDark" StartPoint="0,0" EndPoint="0,1">
@@ -26,13 +27,13 @@
       <GradientStop Color="#9A76A5" Offset="0.5"/>
       <GradientStop Color="#4E6C9D" Offset="1"/>
    </LinearGradientBrush>
-   
+
    <!-- Gradient activo  -->
    <LinearGradientBrush x:Key="CustomGradientBrushActivo" StartPoint="1,0" EndPoint="0,1" >
       <GradientStop Color="#F9F871" Offset="0"/>
       <GradientStop Color="#FFA880" Offset="1"/>
    </LinearGradientBrush>
-   
+
    <!-- Gradient Items Listbox  -->
    <LinearGradientBrush x:Key="CustomGradientBrushItem" StartPoint="1,0" EndPoint="0,1" >
       <GradientStop Color="#9A76A5" Offset="1"/>
@@ -50,7 +51,7 @@
 
    <!-- Colores Iconos -->
    <SolidColorBrush x:Key="IconoPrimario" Color="#FFFFFF"/>
-   <SolidColorBrush x:Key="IconoSecuandario" Color="#FFCCD7FF"/>
+   <SolidColorBrush x:Key="IconoSecuandario" Color="#9A76A5"/>
 
    <SolidColorBrush x:Key="btnClose" Color="#F72626"/>
 
@@ -92,7 +93,8 @@
    <!-- Estilos barra superior -->
    <Style x:Key="btnMenuTop" TargetType="Button">
       <Setter Property="Background" Value="Transparent"/>
-      <Setter Property="Foreground" Value="{DynamicResource TextoPrimario}"/><!--color texto-->
+      <!--color texto-->
+      <Setter Property="Foreground" Value="{DynamicResource TextoPrimario}"/>
       <Setter Property="Margin" Value="5 0 0 0"/>
       <Setter Property="Height" Value="30"/>
       <Setter Property="Width" Value="80"/>
@@ -110,12 +112,66 @@
 
       <Style.Triggers>
          <Trigger Property="IsMouseOver" Value="True">
-            <Setter Property="Background" Value="{DynamicResource BackgroundTerciario}"/>
+            <Setter Property="Background" Value="{DynamicResource BackgroundSecundario}"/>
             <Setter Property="Foreground" Value="#ffffff"/>
          </Trigger>
       </Style.Triggers>
    </Style>
 
+   <!-- Boton añadir -->
+   <Style x:Key="btnAñadir" TargetType="Button">
+      <Setter Property="Background" Value="{DynamicResource BackgroundSecundario}"/>
+      <Setter Property="Foreground" Value="{DynamicResource TextoSecundario}"/>
+      <Setter Property="Height" Value="30"/>
+      <Setter Property="Width" Value="80"/>
+      <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="Template">
+         <Setter.Value>
+            <ControlTemplate TargetType="Button">
+               <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                  <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                     <ContentPresenter.Content>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                           <TextBlock Margin="5 0 5 1">Añadir</TextBlock>
+                           <fa:IconImage Icon="Plus" Style="{DynamicResource iconoPlus}" />
+                        </StackPanel>
+                     </ContentPresenter.Content>
+                  </ContentPresenter>
+               </Border>
+            </ControlTemplate>
+         </Setter.Value>
+      </Setter>
+
+      <Style.Triggers>
+         <Trigger Property="IsMouseOver" Value="True">
+            <Setter Property="Background" Value="{DynamicResource BackgroundTerciario}"/>
+            <Setter Property="Foreground" Value="#ffffff"/>
+            <Setter Property="Template">
+               <Setter.Value>
+                  <ControlTemplate TargetType="Button">
+                     <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                           <ContentPresenter.Content>
+                              <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                 <TextBlock Margin="5 0 5 1" Foreground="{DynamicResource TextoPrimario}">Añadir</TextBlock>
+                                 <fa:IconImage Icon="Plus" Style="{DynamicResource iconoPlus}" Foreground="{DynamicResource TextoPrimario}" />
+                              </StackPanel>
+                           </ContentPresenter.Content>
+                        </ContentPresenter>
+                     </Border>
+                  </ControlTemplate>
+               </Setter.Value>
+            </Setter>
+         </Trigger>
+      </Style.Triggers>
+   </Style>
+
+   <Style x:Key="iconoPlus" TargetType="fa:IconImage">
+      <Setter Property="Height" Value="15"/>
+      <Setter Property="Foreground" Value="{DynamicResource TextoSecundario}"/>
+   </Style>
+   
    <!-- Estilos menu -->
    <Style x:Key="btnMenu" TargetType="Button">
       <Setter Property="Background" Value="Transparent"/>
@@ -183,7 +239,8 @@
       <Setter Property="Template">
          <Setter.Value>
             <ControlTemplate TargetType="Button">
-               <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="#F9F871"> <!--color barra izq activo-->
+               <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="#F9F871">
+                  <!--color barra izq activo-->
                   <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
                </Border>
             </ControlTemplate>
@@ -204,12 +261,6 @@
       <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
    </Style>
 
-   <!-- Estilo boton añadir -->
-   <Style x:Key="iconoPlus" TargetType="fa:IconImage">
-      <Setter Property="Width" Value="23"/>
-      <Setter Property="Height" Value="23"/>
-      <Setter Property="Margin" Value="0 0 0 0"/>
-   </Style>
 
    <!--ESTILOS NUEVA TAREA DIALOGO-->
    <!--Estilo text box con corner radius-->
@@ -310,8 +361,8 @@
 
    <!-- Estilos botones ventana nueva tarea -->
    <Style x:Key="btn-custom" TargetType="Button">
-      <Setter Property="Background" Value="#5b60c4"/>
-      <Setter Property="Foreground" Value="#9eabe2"/>
+      <Setter Property="Background" Value="{DynamicResource BackgroundCuaternario}"/>
+      <Setter Property="Foreground" Value="{DynamicResource TextoPrimario}"/>
       <Setter Property="Margin" Value="0 0 0 0"/>
       <Setter Property="Height" Value="30"/>
       <Setter Property="Width" Value="100"/>
@@ -329,8 +380,8 @@
 
       <Style.Triggers>
          <Trigger Property="IsMouseOver" Value="True">
-            <Setter Property="Background" Value="#223266"/>
-            <Setter Property="Foreground" Value="#ffffff"/>
+            <Setter Property="Background" Value="{DynamicResource BackgroundSecundario}"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextoPrimario}"/>
          </Trigger>
       </Style.Triggers>
    </Style>
