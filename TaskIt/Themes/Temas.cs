@@ -11,7 +11,7 @@ namespace TaskIt.Themes
         {
             string tema = Properties.Settings.Default.Tema;
             ResourceDictionary newres;
-            if (tema == null)
+            if (tema == null || tema== " ")
             {
                 tema = "AzulProfundo";
                 Properties.Settings.Default.Save();
