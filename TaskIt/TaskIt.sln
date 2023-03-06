@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33214.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskIt", "TaskIt\TaskIt.csproj", "{4294CB4D-C00E-4E28-BA9E-EEBF78DD599F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskIt", "TaskIt.csproj", "{760149A3-2B34-4CB1-82DE-D7A56A45DA41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4294CB4D-C00E-4E28-BA9E-EEBF78DD599F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4294CB4D-C00E-4E28-BA9E-EEBF78DD599F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4294CB4D-C00E-4E28-BA9E-EEBF78DD599F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4294CB4D-C00E-4E28-BA9E-EEBF78DD599F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{760149A3-2B34-4CB1-82DE-D7A56A45DA41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{760149A3-2B34-4CB1-82DE-D7A56A45DA41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{760149A3-2B34-4CB1-82DE-D7A56A45DA41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{760149A3-2B34-4CB1-82DE-D7A56A45DA41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {DCD5E0AF-51B2-4029-85DC-E246207947A1}
+		SolutionGuid = {06B48F0C-7FAF-43FB-A3DC-604BC5D4A86E}
 	EndGlobalSection
 EndGlobal

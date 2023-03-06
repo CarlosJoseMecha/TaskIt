@@ -1,0 +1,113 @@
+﻿<Page x:Class="TaskIt.Paginas.PaginaPrincipal"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TaskIt.Paginas"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PaginaPrincipal">
+
+    <Border Grid.Column="1" CornerRadius="0 10 10 0" >
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 50 0">
+                    <Button Content="Hoy" Style="{DynamicResource btnMenuTop }" Background="{DynamicResource BackgroundTerciario}" Foreground="{DynamicResource TextoPrimario}" />
+                    <Button Content="Semana" Style="{DynamicResource btnMenuTop}" />
+                    <Button Content="Mes" Style="{DynamicResource btnMenuTop}"/>
+                    <Button Content="Año" Style="{DynamicResource btnMenuTop}" />
+                </StackPanel>
+                <TextBlock Text="Principal" FontSize="26" Padding="5" Foreground="{DynamicResource TextoPrimario}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25 15 0 20"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Margin="0 0 0 10">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 15 50 0">
+                    <Button  Style="{DynamicResource btnAñadir}" Width="100px" Click="crearTarea" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock  Margin="5 0 5 1">Añadir</TextBlock>
+                            <fa:IconImage  Height="15" Icon="Plus" Style="{DynamicResource iconoPlus}" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <!-- Seccion tareas -->
+            <Grid Grid.Row="3">
+                <!--Interior contenedor-->
+                <Border CornerRadius="10" Background="{DynamicResource BackgroundTerciario}" Margin="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="4*"></ColumnDefinition>
+                                <ColumnDefinition Width="4*"></ColumnDefinition>
+                                <ColumnDefinition Width="4*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Editar" HorizontalAlignment="center" VerticalAlignment="Center"  Foreground="{DynamicResource TextoPrimario}" FontSize="16" Margin="10 0 0 0" />
+                            <TextBlock Grid.Column="1" Text="Tarea" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="{DynamicResource TextoPrimario}" FontSize="16" />
+                            <TextBlock Grid.Column="2" Text="Fecha" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="{DynamicResource TextoPrimario}" FontSize="16" />
+                            <TextBlock Grid.Column="3" Text="Detalles" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="{DynamicResource TextoPrimario}" FontSize="16"  />
+                        </Grid>
+                        <Border Grid.Row="1" CornerRadius="0,0,10,10" BorderBrush="Transparent" Background="{DynamicResource CustomGradientBrush}">
+                            <!--Comienzo ListBox-->
+                            <ListBox x:Name="ListBoxTareas" SelectionChanged="ListBoxTareas_SelectionChanged"  HorizontalContentAlignment="Stretch" SelectionMode="Single" BorderBrush="Transparent" Background="Transparent" d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding tareas}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Margin="0" Background="{DynamicResource CustomGradientBrushItem}"  >
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="4*"></ColumnDefinition>
+                                                <ColumnDefinition Width="4*"></ColumnDefinition>
+                                                <ColumnDefinition Width="4*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Button Grid.Column="0" Background="Transparent" BorderThickness="0" Margin="10" Template="{StaticResource NoMouseOverButtonTemplate}">
+                                                <fa:IconImage  Icon="Edit" Foreground="{DynamicResource TextoPrimario}" Height="20"/>
+                                            </Button>
+
+                                            <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding nombreTarea }" Foreground="{DynamicResource TextoPrimario}"/>
+                                            <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding fecha}" Foreground="{DynamicResource TextoPrimario}"/>
+
+                                            <StackPanel Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <Button Background="Transparent" BorderThickness="0" Template="{StaticResource NoMouseOverButtonTemplate}" Click="Ver_Detalles" >
+                                                    <TextBlock Foreground="{DynamicResource TextoPrimario}" Text="Más detalles" Style="{StaticResource underlineText}" />
+                                                </Button>
+                                            </StackPanel>
+                                            <Button Grid.Column="4" Background="Transparent" BorderThickness="0" Click="EliminarTarea" Style="{StaticResource deleteSelected}">
+                                                <fa:IconImage Icon="Trash" Height="18" Style="{DynamicResource controlIconMouseOver}" />
+                                            </Button>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                                <!-- Estilo Listbox -->
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Padding" Value="0"/>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <!-- Estilo Listbox -->
+                            </ListBox>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>
