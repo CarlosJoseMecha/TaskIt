@@ -7,6 +7,8 @@ using System.Windows.Media;
 using TaskIt.Themes;
 using TaskIt.Modelo;
 using TaskIt.Logica;
+using System.Collections;
+using System.Globalization;
 
 namespace TaskIt.Paginas
 {
@@ -14,6 +16,9 @@ namespace TaskIt.Paginas
    {
       private List<Tarea> listaTareas;
       private int index;
+      //Orden
+      private bool ordenAscNombre = true;
+      private bool ordenAscFecha = true;
       public PaginaPrincipal()
       {
          InitializeComponent();
@@ -79,6 +84,36 @@ namespace TaskIt.Paginas
          ventanaDetalles.ShowDialog();
       }
 
+      //Metodo para ordenar la lista por nombre
+      private void Ordenar_Nombre(object sender, RoutedEventArgs e)
+      {
+         if (ordenAscNombre)
+         {
+            listaTareas.Sort(new ComparadorTareaPorNombre());
+         }
+         else
+         {
+            listaTareas.Sort(new ComparadorTareaPorNombreDesc());
+         }
+         ordenAscNombre = !ordenAscNombre;
+         ListBoxTareas.ItemsSource = listaTareas.Select(t => new { nombreTarea = t.nombre, fecha = t.fecha, descripcion = t.descripcion }).ToList();
+      }
+
+      //Metodo para ordenar la lista por fecha
+      private void Ordenar_Fecha(object sender, RoutedEventArgs e)
+      {
+         if (ordenAscFecha)
+         {
+            listaTareas.Sort(new ComparadorTareaPorFecha());
+         }
+         else
+         {
+            listaTareas.Sort(new ComparadorTareaPorFechaDesc());
+         }
+         ordenAscFecha = !ordenAscFecha;
+         ListBoxTareas.ItemsSource = listaTareas.Select(t => new { nombreTarea = t.nombre, fecha = t.fecha, descripcion = t.descripcion }).ToList();
+      }
+
       private void ListBoxTareas_SelectionChanged(object sender, SelectionChangedEventArgs e)
       {
          if (ListBoxTareas.SelectedIndex != -1)
@@ -108,6 +143,41 @@ namespace TaskIt.Paginas
             current = VisualTreeHelper.GetParent(current);
          }
          return null;
+      }
+   }
+   public class ComparadorTareaPorNombre : IComparer<Tarea>
+   {
+      public int Compare(Tarea x, Tarea y)
+      {
+         return x.nombre.CompareTo(y.nombre);
+      }
+   }
+
+   public class ComparadorTareaPorFecha : IComparer<Tarea>
+   {
+      public int Compare(Tarea x, Tarea y)
+      {
+         DateTime fechaX = DateTime.ParseExact(x.fecha, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+         DateTime fechaY = DateTime.ParseExact(y.fecha, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+         return fechaX.CompareTo(fechaY);
+      }
+   }
+
+   public class ComparadorTareaPorNombreDesc : IComparer<Tarea>
+   {
+      public int Compare(Tarea x, Tarea y)
+      {
+         return y.nombre.CompareTo(x.nombre);
+      }
+   }
+
+   public class ComparadorTareaPorFechaDesc : IComparer<Tarea>
+   {
+      public int Compare(Tarea x, Tarea y)
+      {
+         DateTime fechaX = DateTime.ParseExact(x.fecha, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+         DateTime fechaY = DateTime.ParseExact(y.fecha, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+         return fechaY.CompareTo(fechaX);
       }
    }
 }
