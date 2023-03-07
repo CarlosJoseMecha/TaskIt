@@ -17,8 +17,8 @@ namespace TaskIt.Paginas
       private List<Tarea> listaTareas;
       private int index;
       //Orden
-      private bool ordenAscNombre = true;
-      private bool ordenAscFecha = true;
+      private string tipoOrdenamiento = "";
+
       public PaginaPrincipal()
       {
          InitializeComponent();
@@ -60,10 +60,29 @@ namespace TaskIt.Paginas
                //actualiza la vista de la lista de tareas
                ListBoxTareas.ItemsSource = null;
                listaTareas = TareaLogica.Instancia.GetTareas();
-               ListBoxTareas.ItemsSource = listaTareas.Select(t => new { nombreTarea = t.nombre, fecha = t.fecha, descripcion = t.descripcion }).ToList();
+               //reordena dependiendo de si se había seleccionado algún tipo de ordenación
+               switch (tipoOrdenamiento)
+               {
+                  case "nombreAsc":
+                  Ordenar_NombreAsc();
+                  break;
+                  case "nombreDesc":
+                  Ordenar_NombreDesc();
+                  break;
+                  case "fechaAsc":
+                  Ordenar_FechaAsc();
+                  break;
+                  case "fechaDesc":
+                  Ordenar_FechaDesc();
+                  break;
+                  default:
+                  ListBoxTareas.ItemsSource = listaTareas.Select(t => new { nombreTarea = t.nombre, fecha = t.fecha, descripcion = t.descripcion }).ToList();
+                  break;
+               }
             }
          }
       }
+
       private void Ver_Detalles(object sender, RoutedEventArgs e)
       {
          // Crear la ventana del diálogo de nueva tarea
@@ -87,30 +106,85 @@ namespace TaskIt.Paginas
       //Metodo para ordenar la lista por nombre
       private void Ordenar_Nombre(object sender, RoutedEventArgs e)
       {
-         if (ordenAscNombre)
+         if (tipoOrdenamiento.Equals("fechaAsc") || tipoOrdenamiento.Equals("fechaDesc"))
+         {
+            tipoOrdenamiento = "";
+         }
+
+         if (tipoOrdenamiento.Equals("nombreDesc") || tipoOrdenamiento.Equals(""))
          {
             listaTareas.Sort(new ComparadorTareaPorNombre());
+            tipoOrdenamiento = "nombreAsc";
          }
-         else
+         else if (tipoOrdenamiento.Equals("nombreAsc"))
          {
             listaTareas.Sort(new ComparadorTareaPorNombreDesc());
+            tipoOrdenamiento = "nombreDesc";
          }
-         ordenAscNombre = !ordenAscNombre;
+         ListBoxTareas.ItemsSource = listaTareas.Select(t => new { nombreTarea = t.nombre, fecha = t.fecha, descripcion = t.descripcion }).ToList();
+      }
+
+      private void Ordenar_NombreAsc()
+      {
+         if (tipoOrdenamiento.Equals("fechaAsc") || tipoOrdenamiento.Equals("fechaDesc"))
+         {
+            tipoOrdenamiento = "";
+         }
+
+         listaTareas.Sort(new ComparadorTareaPorNombre());
+         tipoOrdenamiento = "nombreAsc";
+         ListBoxTareas.ItemsSource = listaTareas.Select(t => new { nombreTarea = t.nombre, fecha = t.fecha, descripcion = t.descripcion }).ToList();
+      }
+      private void Ordenar_NombreDesc()
+      {
+         if (tipoOrdenamiento.Equals("fechaAsc") || tipoOrdenamiento.Equals("fechaDesc"))
+         {
+            tipoOrdenamiento = "";
+         }
+
+         listaTareas.Sort(new ComparadorTareaPorNombreDesc());
+         tipoOrdenamiento = "nombreDesc";
          ListBoxTareas.ItemsSource = listaTareas.Select(t => new { nombreTarea = t.nombre, fecha = t.fecha, descripcion = t.descripcion }).ToList();
       }
 
       //Metodo para ordenar la lista por fecha
       private void Ordenar_Fecha(object sender, RoutedEventArgs e)
       {
-         if (ordenAscFecha)
+         if (tipoOrdenamiento.Equals("nombreAsc") || tipoOrdenamiento.Equals("nombreDesc"))
+         {
+            tipoOrdenamiento = "";
+         }
+         if (tipoOrdenamiento.Equals("fechaDesc") || tipoOrdenamiento.Equals(""))
          {
             listaTareas.Sort(new ComparadorTareaPorFecha());
+            tipoOrdenamiento = "fechaAsc";
          }
-         else
+         else if (tipoOrdenamiento.Equals("fechaAsc"))
          {
             listaTareas.Sort(new ComparadorTareaPorFechaDesc());
+            tipoOrdenamiento = "fechaDesc";
+
          }
-         ordenAscFecha = !ordenAscFecha;
+         ListBoxTareas.ItemsSource = listaTareas.Select(t => new { nombreTarea = t.nombre, fecha = t.fecha, descripcion = t.descripcion }).ToList();
+      }
+      private void Ordenar_FechaAsc()
+      {
+         if (tipoOrdenamiento.Equals("nombreAsc") || tipoOrdenamiento.Equals("nombreDesc"))
+         {
+            tipoOrdenamiento = "";
+         }
+         listaTareas.Sort(new ComparadorTareaPorFecha());
+         tipoOrdenamiento = "fechaAsc";
+         ListBoxTareas.ItemsSource = listaTareas.Select(t => new { nombreTarea = t.nombre, fecha = t.fecha, descripcion = t.descripcion }).ToList();
+      }
+      private void Ordenar_FechaDesc()
+      {
+         if (tipoOrdenamiento.Equals("nombreAsc") || tipoOrdenamiento.Equals("nombreDesc"))
+         {
+            tipoOrdenamiento = "";
+         }
+         listaTareas.Sort(new ComparadorTareaPorFechaDesc());
+         tipoOrdenamiento = "fechaDesc";
          ListBoxTareas.ItemsSource = listaTareas.Select(t => new { nombreTarea = t.nombre, fecha = t.fecha, descripcion = t.descripcion }).ToList();
       }
 
