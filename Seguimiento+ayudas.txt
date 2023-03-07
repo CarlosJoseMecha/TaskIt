@@ -1,9 +1,9 @@
 #Profesor:
 -Este es el único fichero que voy a editar del proyecto, su función es para indicar pautas a seguir para su evaluación y 
-consejos para solucionar fallos o mofificar características para la adecuación de la nasignatura.
+consejos para solucionar fallos o modificar características para la adecuación de la asignatura.
 -Cada pauta implicará una calificación.
 -Su eliminación implica la anulación del proyecto.
--Sólo añadir texto encabezandolo con la fecha y delimitadores ++++
+-Sólo añadir texto encabezándolo con la fecha y delimitadores ++++
 
 10/02/2023
 Recordad añadir aquí todas tus notas.
@@ -16,4 +16,8 @@ Primera versión "funcional".
 -Permite elegir entre 3 temas de colores diferentes.
 -El tema elegido se guarda en el archivo App.config
 -Toda la interfaz está realizada con Grid, por lo que no se deforma al redimensionar.
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+07/03/2023
+Añadida persistencia de datos mediante base de datos SQLite como comentamos.
+Añadida funcionalidad para ordenar las tareas por fecha y por nombre, en orden ascendente y descendete.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
